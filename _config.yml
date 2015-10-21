@@ -1,0 +1,38 @@
+# Site settings
+description: Tech Matters
+baseurl: "" # the subpath of your site, e.g. /blog/
+#url: "http://www.ajimalkustoms.me" # the base hostname & protocol for your site 
+
+# User settings
+username: Miserable Geek
+user_description: Freelance Researcher and WebDeveloper
+user_title: Ashish Ajimal
+email: coolajimal@gmail.com
+twitter_username: 
+github_username:  Ajimal14
+gplus_username:  lorem_ipsum
+disqus_username: lorem_ipsum
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+permalink: /:title/
+
+
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
+
+# Links to include in menu navigation
+# For external links add external: true
+links:
+  - title: Home
+    url: /
+  - title: About Me
+    url: /about
+
+# exclude my node related stuff
+exclude: ['package.json', 'src', 'node_modules']
