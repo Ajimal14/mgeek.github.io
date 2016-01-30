@@ -4,7 +4,7 @@ title: Episode 2 - Jack & Gones
 ---
 When i was 10, <br>
 Love for gaming was that high on me,
-i used to borrow gaming disks from my classmates,but eventually i copied all the games from my classmates had and left nothing to play with.<br>
+i used to borrow gaming disks from my classmates,but eventually i copied all the games my classmates had and left nothing to play with.<br>
 So then me and my classmate ,
 actually me derived a pattern to return the dvd's after copying it to our machines,
 we used to pay once and first i copy the disc and return to the shopkeeper by saying,
