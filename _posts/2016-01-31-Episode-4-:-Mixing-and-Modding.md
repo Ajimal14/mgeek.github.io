@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Episode 4- Mix and Match 
+title: Episode 4 - Mixing and Modding
 ---
-<Strong>Episode 4 : Mixing and Matching</strong><br>
+<Strong>Episode 4 : Mixing and Modding</strong><br>
 There was a website named <strong>Animoto, 
 A Video Animation Company,</strong>at that time they was offering a free demo video of 30 secs and at the end they present with their logo, 
 I used to cut that logo and paste 2 to 3 videos to make intros and give them to the people! 
