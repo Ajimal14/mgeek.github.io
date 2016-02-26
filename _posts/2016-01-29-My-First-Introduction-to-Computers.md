@@ -1,6 +1,6 @@
 ---
 layout: post
-title: That's How I Started with Computers-Episode 1
+title: Episode 1- That's How I Started with Computers
 ---
 <strong>Episode 1: Introduction </strong> <br>
 <em>28 August 1997,New Delhi,India</em><br>
