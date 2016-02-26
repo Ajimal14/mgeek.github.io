@@ -252,7 +252,7 @@
         transition: all .7s;
     }
     .icons-home a .icon {
-        fill: #fff;
+        fill: #fae596;
         width: 18px;
         height: 18px;
     }
@@ -1580,7 +1580,7 @@
     footer {
         background: #173e43;
         padding: 1.5625rem 0;
-        margin-top: 100px;
+        margin-top: 100px;  
     }
     footer p,
     footer a {
