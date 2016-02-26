@@ -58,7 +58,7 @@
     }
     mark {
         background: #ff0;
-        color: #000
+        color: #173e43
     }
     small {
         font-size: 80%
@@ -811,7 +811,7 @@
         }
     }
     .post-item .datetime .month-year {
-        color: #000;
+        color: #173e43;
         font-size: 1.125rem
     }
     .post-item .content {
@@ -857,7 +857,7 @@
         color: #173e43
     }
     .post-item .content .post-title {
-        color: #000;
+        color: #173e43;
         font-size: 2rem;
     }
     @media only screen and (max-width: 37.5rem) {
@@ -1526,7 +1526,7 @@
         font-weight: 800;
         font-style: normal;
         text-decoration: none;
-        color: #000;
+        color: #173e43;
         font-size: 1.875rem;
     }
     .author .name a:hover {
