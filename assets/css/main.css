@@ -606,7 +606,7 @@ body {
 }
 .header-site,
 .header-post {
-    background: #6ed3cf;
+    background:#173e43;
     height: 100%;
 }
 .header-site .content,
@@ -624,7 +624,7 @@ body {
 }
 .header-site h1,
 .header-site h2 {
-    color: #fff;
+    color: #fae596;
     text-align: center
 }
 .header-site .site-title {
@@ -790,7 +790,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
     font-style: normal;
-    color: #6ed3cf;
+    color: #173e43;
     font-size: 5rem;
     line-height: 1.6;
 }
@@ -854,7 +854,7 @@ body {
     text-decoration: none
 }
 .post-item .content .date {
-    color: #6ed3cf
+    color: #173e43
 }
 .post-item .content .post-title {
     color: #000;
@@ -873,7 +873,7 @@ body {
     font-size: 1.25rem;
 }
 .post-item .content .description a {
-    color: #6ed3cf;
+    color: #173e43;
     text-decoration: underline
 }
 .post-content {
@@ -968,9 +968,9 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     font-style: normal;
-    color: #6ed3cf;
+    color: #173e43;
     text-decoration: none;
-    border-bottom: 2px solid #6ed3cf
+    border-bottom: 2px solid #173e43
 }
 .post-content iframe {
     margin-top: 1.875rem;
@@ -1037,7 +1037,7 @@ body {
     margin-left: auto;
     padding-left: 0;
     padding-right: 0;
-    border-left: .3125rem solid #6ed3cf;
+    border-left: .3125rem solid #173e43;
     padding: 0 1.875rem;
     margin: 3.125rem auto;
 }
@@ -1117,7 +1117,7 @@ body {
     text-decoration: none;
 }
 .share a:hover svg {
-    fill: #6ed3cf
+    fill: #173e43
 }
 table {
     margin: 3.125rem auto;
@@ -1530,7 +1530,7 @@ pre span {
     font-size: 1.875rem;
 }
 .author .name a:hover {
-    color: #6ed3cf
+    color: #173e43
 }
 @media only screen and (min-width: 37.5rem) {
     .author .name a {
@@ -1551,7 +1551,7 @@ pre span {
 }
 .author .email {
     text-decoration: none;
-    color: #6ed3cf
+    color: #173e43
 }
 .comments {
     *zoom: 1;
@@ -1578,7 +1578,7 @@ pre span {
     font-size: 1.875rem
 }
 footer {
-    background: #6ed3cf;
+    background: #fae596;
     padding: 1.5625rem 0;
     margin-top: 100px;
 }
