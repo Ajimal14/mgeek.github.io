@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Top 5 Technology Reviewer (YouTube) 
+title: Top 5 Technology Reviewer YouTube
 ---
 
 
