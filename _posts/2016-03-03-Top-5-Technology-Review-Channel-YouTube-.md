@@ -23,7 +23,7 @@ Marques Brownlee, also known by his stage name MKBHD, is a video producer, host,
 Android Authority is an established, independent voice that covers the latest Android news, Android phone reviews, Android tablet reviews, how-to’s, and other news related to the world of Android.
 </em>
 
-<img class="img-rounded" src="https://flic.kr/p/ENraiK" alt="The Verge">
+<img  itemprop="image" class="img-rounded" src="https://flic.kr/p/ENraiK" alt="The Verge">
 
 <strong>
 #3. The Verge 
