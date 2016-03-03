@@ -43,7 +43,7 @@ The Verge is an American technology news and media network operated by Vox M
 <em>
 Unbox Therapy is committed to producing the most beautiful product-based videos on the web. Host Lewis Hilsenteger satisfies your tech cravings by unboxing, reviewing and discussing in detail products from the worlds of gaming, tech and beyond!
 </em>
-<img itemprop="image" class="img-rounded" src="  " alt="XDA Developers">
+<img itemprop="image" class="img-rounded" src=" https://flic.kr/p/Emjbsy" alt="XDA Developers">
 
 <strong>
 #5. XDA
