@@ -4,7 +4,7 @@ title: Top 5 Technology Review Channel YouTube
 ---
 
 
-<img itemprop="image" class="img-rounded" src="assets/src/img/MKBHD.png" alt="MKBHD">
+<img itemprop="image" class="img-rounded" src="/assets/src/img/MKBHD.png" alt="MKBHD">
 
 <strong>
 #1. MKBHD
