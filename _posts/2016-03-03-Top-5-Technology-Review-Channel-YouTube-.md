@@ -13,7 +13,7 @@ title: Top 5 Technology Review Channel YouTube
 <em>
 Marques Brownlee, also known by his stage name MKBHD, is a video producer, host, technology reviewer, Internet personality and professional ultimate frisbee player, best known for his technology-based YouTube channel, MKBHD. 
 </em>
-<img itemprop="image" class="img-rounded" src="https://www.dropbox.com/s/3qyht2nozve0xmd/Androidauthority.jpg?dl=0 " alt="Android Authority">
+<img itemprop="image" class="img-rounded" src=" " alt="Android Authority">
 
 <strong>
 #2. Android Authority 
