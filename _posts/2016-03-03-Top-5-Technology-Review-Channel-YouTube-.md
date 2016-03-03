@@ -33,7 +33,7 @@ Android Authority is an established, independent voice that covers the latest An
 The Verge is an American technology news and media network operated by Vox Media with offices inManhattan, New York. The network publishes news items, long-form feature stories, product reviews, podcasts, and an entertainment show.
 </em>
 
-<img itemprop="image" class="img-rounded" src="assets/src/img/UNBOX.png" alt="Unbox Therapy ">
+<img itemprop="image" class="img-rounded" src=" https://flic.kr/p/EBY6DG" alt="Unbox Therapy ">
 
 
 <strong>
@@ -43,7 +43,7 @@ The Verge is an American technology news and media network operated by Vox M
 <em>
 Unbox Therapy is committed to producing the most beautiful product-based videos on the web. Host Lewis Hilsenteger satisfies your tech cravings by unboxing, reviewing and discussing in detail products from the worlds of gaming, tech and beyond!
 </em>
-<img itemprop="image" class="img-rounded" src="assets/src/img/XDA.png" alt="XDA Developers">
+<img itemprop="image" class="img-rounded" src="  " alt="XDA Developers">
 
 <strong>
 #5. XDA
