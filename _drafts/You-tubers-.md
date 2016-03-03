@@ -33,7 +33,7 @@ Android Authority is an established, independent voice that covers the latest An
 The Verge is an American technology news and media network operated by Vox Media with offices inManhattan, New York. The network publishes news items, long-form feature stories, product reviews, podcasts, and an entertainment show.
 </em>
 
-<img itemprop="image" class="img-rounded" src="/src/img/uther.png" alt="Unbox Therapy ">
+<img itemprop="image" class="img-rounded" src="/src/img/unbox.png" alt="Unbox Therapy ">
 
 
 <strong>
