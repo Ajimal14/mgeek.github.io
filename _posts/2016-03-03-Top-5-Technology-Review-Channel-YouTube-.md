@@ -2,17 +2,12 @@
 layout: post
 title: Top 5 Technology Review Channel YouTube 
 ---
-
-
-<img itemprop="image" class="img-rounded" src="https://dl.dropboxusercontent.com/s/zrd0re06ed40ki5/Mkbhd.jpg" alt="MKBHD">
-
-
-
 <strong>
 #1. MKBHD
 </strong >
 
 <em>
+<img itemprop="image" class="img-rounded" src="https://dl.dropboxusercontent.com/s/zrd0re06ed40ki5/Mkbhd.jpg" alt="MKBHD">
 Marques Brownlee, also known by his stage name MKBHD, is a video producer, host, technology reviewer, Internet personality and professional ultimate frisbee player, best known for his technology-based YouTube channel, MKBHD. 
 </em>
 <hr>
