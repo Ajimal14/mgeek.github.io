@@ -599,8 +599,6 @@
     }
     .img-rounded {
         border-radius: 30%
-        width : 100%
-        height : 22px;
     }
     html,
     body {
@@ -884,6 +882,8 @@
     .post-content img {
         max-width: 100%;
         margin: 1.875rem auto;
+        float: left;
+        height: 200px;
         display: block
     }
     .post-content p,
