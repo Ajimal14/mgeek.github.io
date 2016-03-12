@@ -882,7 +882,7 @@
     .post-content img {
         max-width: 100%;
         margin: 1.875rem auto;
-        float: left;
+        float: none;
         height: 200px;
         display: block
     }
