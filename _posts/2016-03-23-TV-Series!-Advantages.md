@@ -26,13 +26,12 @@ people act like the people they admire,they adopt some of the trait and habits o
 TV series are good source of passive knowledge,
 TV show like HouseMD will add some medical words to your vocab and may induce some medical knowldege in your personality which can help you
 TV Series uses actual facts and knowlege with proper guidance of professionals,<br>
-<em>House MD had some actual content under the guidance of professionals from medical field.<br>
+House MD had some actual content under the guidance of professionals from medical field.<br>
 Like House MD , Silicon Valley's "D-to-F Ratio" was actual concept which was developed under the guidance of a Stanford professor .<br>
 Shows Like BigBangTheory and How I Met Your Mother may induce some sarcasm to your personality!<br>
 Shows like Friends may help you to push your friendship limits away.<br>
 Suits can induce some knowledge of Law.<br>
-Sherlock can help you to be more observant... and many more.
-</em>
+Sherlock can help you to be more observant... and many more. 
 
 
 <img itemprop="image" src="https://dl.dropboxusercontent.com/s/qd8g6qp8ll97ike/silicon-valley.jpg?dl=1" alt="silli" style="border-radius:10%">
