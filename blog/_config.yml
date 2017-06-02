@@ -1,6 +1,6 @@
 # Site settings
 description: Tech Matters
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: "/blog/" # the subpath of your site, e.g. /blog/
 #url: "http://www.ajimalkustoms.me" # the base hostname & protocol for your site 
 
 # User settings
