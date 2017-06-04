@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif|Pacifico');
+body {
+	background: #2c3e50;
+}
+.container {
+	width: 90%;
+	height: 1000px;
+	background: #ecf0f1;
+	margin: 0 auto;
+	border-radius: 5px;
+	line-height: 3;
+}
+.one {
+	width: 10%;
+	float: left;
+	height: 100px;
+	background: #16a085;
+	margin:20px 20px;
+	font-family: 'Bree Serif', serif;
+	color: #fff;
+	font-size: 32px;
+	text-align: center;
+	border-radius: 5px;
+	
+}
+.two {
+	width: 20%;
+	float: left;
+	height: 100px;
+	background: #2c3e50;
+	margin:20px 10px;
+	font-family: 'Bree Serif', serif;
+	color: #fff;
+	font-size: 32px;
+	text-align: center;
+	border-radius: 5px;
+	}
+.three {
+	width: 30%;
+	float: left;
+	height: 100px;
+	background: #16a085;
+	margin:20px 10px;
+	font-family: 'Bree Serif', serif;
+	color: #fff;
+	font-size: 32px;
+	text-align: center;
+	border-radius: 5px;
+}
+.four {
+	width:30%;
+	float: left;
+	height: 100px;
+	margin:20px 10px;
+	font-family: 'Bree Serif', serif;
+	color: #fff;
+	font-size: 32px;
+	text-align: center;
+	border-radius: 5px;
+}
+.four img {
+	width: 70%;
+	height: 100px;
+}
+.input {
+
+	height: 100px;
+	font-family: 'Pacifico', serif;
+	color: #fff;
+	font-size: 32px;
+	position: fixed;
+	left: 0;
+	padding: 10px;
+	bottom: 0;
+	width: 100%;
+	background: rgba(0,0,0,0.5);
+}
+option,select, input {
+	margin-top: 20px;
+	margin-left: 5px;
+	padding: 5px;
+	font-size: 22px;
+	font-family: 'Bree Serif', serif;
+	position: relative;
+}
+
+#up {
+	background: rgba(26, 188, 156, 0.5);
+	width: 20%;
+	height: 60px;
+	color: #fff;
+	font-family: 'Pacifico', serif;
+	font-size: 32px;
+	cursor: pointer;
+	position: absolute;
+	bottom: 30%;
+	right: 2%;
+}
+.logo {
+	color: #fff;
+	font-family: 'Pacifico', serif;
+	text-align: center;
+}
+.logo h3 {
+	font-family: 'Bree Serif', serif;
+	text-align: center;
+	color: #fff;
+
+}
+#make {
+	width: 10%;
+	text-align: center;
+}
