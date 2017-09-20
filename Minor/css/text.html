@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test</title>
+</head>
+<body>
+
+<ul class="wonder"></ul>
+<script type="text/javascript" src="name.js"></script>
+<script type="text/javascript">
+  document.querySelector('.wonder').innerHTML = 
+            names
+            .sort((a,b) => a>b?1:-1)
+            .map(name => `<li>${name}</li>`)
+            .join('')
+                  ;
+</script>
+</body>
+</html>
