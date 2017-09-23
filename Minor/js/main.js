@@ -2,6 +2,8 @@ $('.bigNav img').hide();
 $('#ham').hide();
 $('#close').hide();
 $('.slideInMenu').hide();
+$('.megaMenu').hide();
+$('.womenDynamic').hide();
 //FIXED HEADER
 $(window).scroll(function(){
     if ($(window).scrollTop() >= 600) {
@@ -38,7 +40,22 @@ $('.slideInMenu').addClass('animated slideOutLeft');
 $('#ham').show();
 $('#close').hide();
 });
-
+$('.shop').mouseenter(function(){
+$('.megaMenu').show();
+});
+$('.bigNav').mouseleave(function(){
+$('.megaMenu').hide();
+$('.womenDynamic').hide();
+$('.menDynamic').hide();
+});
+$('#megaMenuMen').hover(function(){
+$('.womenDynamic').hide();
+$('.menDynamic').show();
+});
+$('#megaMenuWomen').hover(function(){
+$('.menDynamic').hide();
+$('.womenDynamic').show();
+});
 //SMOOTH SCROLL
 $(function() {
   $('a[href*="#"]:not([href="#"])').click(function() {

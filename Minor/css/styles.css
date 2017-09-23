@@ -42,7 +42,86 @@ font-family: 'Oswald', sans-serif;
 	float: left;
 	margin-right: -70px;
 }
+/*Mega Menu Styles*/
+.megaMenu {
+	width: 100%;
+	height: 400px;
+	float: left;
+	background: rgba(0,0,0,0.5);
+}
+.leftFixed {
+	width: 30%;
+	float: left;
+}
+.leftFixed ul {
+	list-style: none;
+	text-align: center;
+}
+.leftFixed ul li {
+	font-size: 52px;
+	font-family: 'Josefin Sans', sans-serif;
+	color: #fff;
+	display: block;
+	margin-top: 80px;
+}
+.rightFixed {
+	width: 70%;
+	float: right;	
+	background: white;
+	margin-top: 30px;
+}
+.menDynamic div {
+	width: 30%;
+	height: 300px;
+	float: left;
+	margin-left: 20px;
+	margin-top: 40px; 
+}
 
+.womenDynamic div {
+	width: 30%;
+	height: 300px;
+	float: left;
+	margin-left: 20px;
+	margin-top: 40px;
+}
+.rightFixed p{
+	font-family: 'Oswald';
+	text-align: center;
+	margin-top: 100px;
+	display: block;
+	background: rgba(0,0,0,0.8);
+	font-size: 30px;
+}
+.rightFixed a {
+	text-decoration: none;
+	color: #fff;
+	
+}
+.menPurfume {
+	background: url("../img/menPurfume.jpg");
+	background-size: contain;
+}
+.menClothes {
+	background: url("../img/menClothes.jpg");
+	background-size: contain;	
+}
+.menShoes {
+	background: url("../img/menShoes.jpg");
+	background-size: contain;	
+}
+.womenPurfume {
+	background: url("../img/womenPurfume.jpg");
+	background-size: contain;
+}
+.womenClothes {
+	background: url("../img/womenClothes.jpg");
+	background-size: cover;	
+}
+.womenShoes {
+	background: url("../img/womenShoes.jpg");
+	background-size: cover;	
+}
 .mobileNav img{
 	width: 30%;
 	height: 60px;
