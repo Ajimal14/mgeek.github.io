@@ -481,20 +481,20 @@ padding: 15% 15% 0% 15%;
 	width: 80%;
 }
 .item {
-			width: 20%;
-			height: 200px;
-			background: rgba(111,222,12,0.4);
-			margin-left: 20px;
-			margin-bottom: 20px;
-			float: left;
-			text-align: center;
-			padding: 10px;
+		width: 20%;
+		height: 200px;
+		background: rgba(111,222,12,0.4);
+		margin-left: 20px;
+		margin-bottom: 20px;
+		float: left;
+		text-align: center;
+		padding: 10px;
 		}
-		.item h1{
-			color: #fff;
-			margin-top: 30%;
-			font-family: 'forte';
-			font-style: italic;
+.item h1{
+		color: #fff;
+		margin-top: 30%;
+		font-family: 'forte';
+		font-style: italic;
 		}
 
 /*Responsive Code Starts Here*/
