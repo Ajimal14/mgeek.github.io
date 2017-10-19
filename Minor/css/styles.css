@@ -47,7 +47,7 @@ font-family: 'Oswald', sans-serif;
 	width: 100%;
 	height: 400px;
 	float: left;
-	background: rgba(0,0,0,0.5);
+	background: rgba(0,0,0,0.8);
 }
 .leftFixed {
 	width: 30%;
@@ -60,14 +60,16 @@ font-family: 'Oswald', sans-serif;
 .leftFixed ul li {
 	font-size: 52px;
 	font-family: 'Josefin Sans', sans-serif;
-	color: #fff;
 	display: block;
 	margin-top: 80px;
+}
+.leftFixed ul li a {
+	color: #fff;
+	
 }
 .rightFixed {
 	width: 70%;
 	float: right;	
-	background: white;
 	margin-top: 30px;
 }
 .menDynamic div {
@@ -452,11 +454,17 @@ padding: 15% 15% 0% 15%;
 	background: #2c2c2c;
 	position: fixed;
 	}
-.sidebar h1,h2{
+.sidebar h1,h2,h4{
 	text-align: center;
+	margin: 0 auto;
+	padding: 10px;
+}
+.sidebar h4:hover {
+	color: gold;
+	transition: 1s;
 }
 .sidebar label {
-	margin-left: 70px;	
+	margin-left: 70px;
 	transition: 0.4s;
 	margin-top: 10px;
 }
@@ -471,6 +479,23 @@ padding: 15% 15% 0% 15%;
 	height: 1800px;
 	width: 80%;
 }
+.item {
+			width: 20%;
+			height: 200px;
+			background: rgba(111,222,12,0.4);
+			margin-left: 20px;
+			margin-bottom: 20px;
+			float: left;
+			text-align: center;
+			padding: 10px;
+		}
+		.item h1{
+			color: #fff;
+			margin-top: 30%;
+			font-family: 'forte';
+			font-style: italic;
+		}
+
 /*Responsive Code Starts Here*/
 @media screen and (max-width: 480px) {
  .bignNav {
