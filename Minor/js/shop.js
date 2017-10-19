@@ -13,15 +13,15 @@ var createProduct = (type,gender,name,image,price,size,color) => {
 	var ob = new product(type,gender,name,image,price,size,color);
 	mainArray.push(ob);
 }
-createProduct("shoes","male","el parado","one","2500","s","24","red");
-createProduct("shirt","male","el darado","one","3500","m","24","pink");
-createProduct("shirt","male","el farado","one","500","s","24","white");
-createProduct("shoes","female","el garado","one","5600","s","24","white");
-createProduct("socks","female","el harado","one","9800","m","24","red");
-createProduct("shirt","female","el jarado","one","1000","s","24","pink");
-createProduct("shirt","female","el karado","one","500","l","24","pink");
-createProduct("shirt","female","el qarado","one","2500","m","24","pink");
-createProduct("shoes","female","el warado","one","2500","m","24","white");
+createProduct("footwear","male","Old White Sneakers","one","2500","s","24","red");
+createProduct("topwear","male","Classic Polo","one","3500","m","24","pink");
+createProduct("topwear","male","Crew Neck","one","500","s","24","white");
+createProduct("footwear","female","Brass Flats","one","5600","s","24","white");
+createProduct("footwear","female","Heels","one","9800","m","24","red");
+createProduct("topwear","female","Tranches","one","1000","s","24","pink");
+createProduct("bottoms","female","Classic V Neck","one","500","l","24","priceink");
+createProduct("bottoms","female","Black Down","one","2500","m","24","pink");
+createProduct("footwear","female","Sports","one","2500","m","24","white");
 currentArr = mainArray;
 var type = (inp) => { return currentArr.filter(item => item.type === inp); }
 var size = (inp) => { return currentArr.filter(item => item.size === inp); }

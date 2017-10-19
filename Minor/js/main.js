@@ -4,6 +4,9 @@ $('#close').hide();
 $('.slideInMenu').hide();
 $('.megaMenu').hide();
 $('.womenDynamic').hide();
+$('#filterDrop').hide();
+$('#categoryDrop').hide();
+$('#sizesDrop').hide();
 //FIXED HEADER
 $(window).scroll(function(){
     if ($(window).scrollTop() >= 600) {
@@ -56,6 +59,16 @@ $('#megaMenuWomen').hover(function(){
 $('.menDynamic').hide();
 $('.womenDynamic').show();
 });
+$('#filters').click(function(){
+$('#filterDrop').slideToggle();
+});
+$('#categories').click(function(){
+$('#categoryDrop').slideToggle();
+});
+$('#sizes').click(function(){
+$('#sizesDrop').slideToggle();
+});
+
 //SMOOTH SCROLL
 $(function() {
   $('a[href*="#"]:not([href="#"])').click(function() {

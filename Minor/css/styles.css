@@ -474,6 +474,7 @@ padding: 15% 15% 0% 15%;
 	transition: 0.4s;
 }
 .rightMainContent {
+	margin-top: 100px;
 	float: right;
 	background: ;
 	height: 1800px;
