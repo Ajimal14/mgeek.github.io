@@ -191,7 +191,7 @@ font-family: 'Oswald', sans-serif;
 		font-size: 22px;
 }
 .shopNavBar {
-	width: 80%;
+	width: 100%;
  	position: fixed;
  	top:0; 
  	right: 0;
@@ -202,6 +202,7 @@ font-family: 'Oswald', sans-serif;
 	margin: 0 auto;
 	padding: 0;
 	text-align: center;
+	transition: 1s;
 	}
 .shopNavBar ul {
 	list-style: none;
@@ -454,10 +455,20 @@ padding: 15% 15% 0% 15%;
 	background: #2c2c2c;
 	position: fixed;
 	}
-.sidebar h1,h2,h4{
+.sidebar h2,h4{
 	text-align: center;
 	margin: 0 auto;
 	padding: 10px;
+}
+.filterContainer {
+	margin-top: 100%;
+}
+.sidebar h4:active {
+	color: red;
+	/*transition: 1s;*/
+}
+.sidebar h4 {
+	cursor: pointer;
 }
 .sidebar h4:hover {
 	color: gold;
@@ -478,25 +489,38 @@ padding: 15% 15% 0% 15%;
 	float: right;
 	background: ;
 	height: 1800px;
-	width: 80%;
+	width: 100%;
+	transition: 1s;
 }
 .item {
-		width: 20%;
-		height: 200px;
-		background: rgba(111,222,12,0.4);
-		margin-left: 20px;
-		margin-bottom: 20px;
-		float: left;
-		text-align: center;
-		padding: 10px;
+			width: 20%;
+			height: 200px;
+			background: rgba(111,222,12,0.4);
+			margin-left: 20px;
+			margin-bottom: 20px;
+			float: left;
+			text-align: center;
+			padding: 10px;
 		}
-.item h1{
-		color: #fff;
-		margin-top: 30%;
-		font-family: 'forte';
-		font-style: italic;
+		.item h1{
+			color: #fff;
+			margin-top: 30%;
+			font-family: 'forte';
+			font-style: italic;
 		}
-
+.ham {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: red;
+	z-index: 1000;
+	font-size: 40px;
+	cursor: pointer;
+}
+.slider {
+	width: 80%;
+	transition: 1s;
+}
 /*Responsive Code Starts Here*/
 @media screen and (max-width: 480px) {
  .bignNav {

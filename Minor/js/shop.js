@@ -33,16 +33,22 @@ document.querySelector(".rightMainContent").innerHTML = arr.map(item => `<div cl
 showProducts(mainArray);
 //this fuckin piece of shit worked i am happy as fuck!!!!!
 $(".sidebar h4").click(function(event) {
-    var text = $(event.target).text();
+    var text = $(event.target).text();	    
     	if(text === 'male' || text === 'female') {
     			currentArr = gender(text);
    	 			showProducts(currentArr); 		
    	 			}
     	else if(text === 's' || text === 'm' || text === 'l' || text === 'xl') {
-    			showProducts(size(text));
+    		 	showProducts(size(text));
     			}
      	else  {
-     			currentArr = type(text.toLowerCase());
+    			currentArr = type(text.toLowerCase());
     			showProducts(currentArr);
-    	}
+    			}
+    (function(){
+	let a = document.querySelector(".rightMainContent").innerHTML;
+	if (a == "") {
+		document.querySelector(".rightMainContent").innerHTML = '<h1>Fuckk OFF You Little Peice of SHit Nothing here</h1>';
+	}
+})();
     });
