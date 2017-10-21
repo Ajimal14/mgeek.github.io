@@ -459,6 +459,7 @@ padding: 15% 15% 0% 15%;
 	text-align: center;
 	margin: 0 auto;
 	padding: 10px;
+	cursor: pointer;
 }
 .filterContainer {
 	margin-top: 100%;
@@ -466,9 +467,6 @@ padding: 15% 15% 0% 15%;
 .sidebar h4:active {
 	color: red;
 	/*transition: 1s;*/
-}
-.sidebar h4 {
-	cursor: pointer;
 }
 .sidebar h4:hover {
 	color: gold;
@@ -520,6 +518,20 @@ padding: 15% 15% 0% 15%;
 .slider {
 	width: 80%;
 	transition: 1s;
+}
+#colorsDrop {
+	width: 40%;
+	margin: 0 auto;
+}
+.colorpicker{
+	width: 20px;
+	height: 20px;
+	border-radius: 100px;
+	background-color: inherit;
+	float: left;
+	margin-left:  15px;
+	margin-top: 10px;
+	cursor: pointer;
 }
 /*Responsive Code Starts Here*/
 @media screen and (max-width: 480px) {
