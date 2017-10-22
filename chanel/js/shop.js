@@ -22,6 +22,16 @@ var createProduct = (type,gender,name,image,price,size,color) => {
 createProduct("boots","male","Old White Sneakers","one","2500","s","red");
 createProduct("tshirt","male","Classic Polo","one","3500","m","pink");
 createProduct("shirt","male","Crew Neck","one","500","s","white");
+
+
+createProduct("jacket","male","Classic Denim","one","5600","s","white");
+createProduct("jacket","male","Classic Leather","one","5600","s","white");
+createProduct("jacket","male","Classic Faux","one","5600","s","white");
+
+createProduct("jacket","female","Fade Denim","one","5600","s","white");
+createProduct("jacket","female","The Classic Fur","one","5600","s","white");
+createProduct("jacket","female","Trech Jacket","one","5600","s","white");
+
 createProduct("heels","female","Brass Flats","one","5600","s","white");
 createProduct("heels","female","Heels","one","9800","m","red");
 createProduct("dress","female","Tranches","one","1000","s","pink");
@@ -48,7 +58,7 @@ document.querySelector(".rightMainContent").innerHTML = arr.map(item => `<div cl
 //Initially Displaying Products
 showProducts(mainArray);
 //This Function Evaluates The URL For id Attribute thrown by Index.html
-// a href="shop.html#'property name'"
+// a href="shop.html#'idname'"
 (()=>{
     if(document.location.href.includes('men')){
         showProducts(gender("male"));
@@ -58,6 +68,12 @@ showProducts(mainArray);
     }
     else if (document.location.href.includes("dress")){
         showProducts(type("dress"));    
+    }
+    else if (document.location.href.includes("fragnance")){
+        showProducts(type("fragnance"));    
+    }
+    else if (document.location.href.includes("jackets")){
+        showProducts(type("jacket"));    
     }
     else if (document.location.href.includes("shirt")){
         showProducts(type("shirt"));
@@ -77,9 +93,15 @@ showProducts(mainArray);
     else if (document.location.href.includes("wfrag")){
     showProducts(gender("female").filter((a)=>a.type == "fragnance"));
     }
-    else if (document.location.href.includes("jackets")){ 
-        showProducts(gender("female").filter(item => item.type == "tshirt"));
+    else if (document.location.href.includes("mjacket")){ 
+    showProducts(gender("male").filter((a)=>a.type == "jacket"));
     }
+    else if (document.location.href.includes("wjacket")){ 
+    showProducts(gender("female").filter((a)=>a.type == "jacket"));
+    }
+
+    // Bags Section To Be Implemented Next 
+    //Design the Shop.html Elements
 })();
 
 //this IIFE(implicitly invoked function expression) sets the color pickers color according to their ids

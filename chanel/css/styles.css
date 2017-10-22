@@ -259,9 +259,13 @@ font-family: 'Oswald', sans-serif;
 .rightFooterLinks {
 	width: 60%;
 	height: 200px;
-	background: url('../img/banner.gif');	
+	/*background: url('../img/banner.gif');	*/
 	background-size: 800px 200px;
 	float: right;
+}
+.rightFooterLinks img {
+	width: 800px;
+	height: 200px;
 }
 .footerTagLines{
 	float: left;
@@ -360,26 +364,53 @@ padding: 15% 15% 0% 15%;
 .ad3 {
 margin-top: 0px;
 background: url('../img/chanel3.jpg');
+}
+.ad4 {
+margin-top: 0px;
+background: url('../img/chanel4.jpg');	
+}
+.floater {
+	width: 30%;
+	height: 300px;
+	background: rgba(255,255,255,0.4);
+	margin-top: 100px;
+}
 
+.floatRight 
+{
+	float: right;
+	margin-right: 100px;
+}
+.floatLeft {
+	float: left;
+	margin-left: 100px;
+}
+.floatLeft h1{
+	color: #2c2c2c !important;
+}
+.floater a {
+	text-decoration: none;
+}
+.floater h1 {
+	padding: 40px;
+	font-family: 'Oswald';
+	color: #4c4c4c;
+}
+.floater h2 {
+	color: gold;
+	cursor: pointer;
 }
 .overlay {
 	margin: 0 auto;
-	width: 50%;
+	width: 30%;
 	height: 400px;
 	padding: 0;
-	background:rgba(44,44,44,0.8);
-}
-.ad2 .overlay, .ad .overlay {
-	float: left;
-	background: rgba(255,255,255,0.4);
-	margin-top: 50px;
-	margin-left: 20px;
-	color: #2c2c2c;
-	width: 30%;
+	background:rgba(31,27,54,0.3);
+	border-radius: 100%;
 }
 .showcase {
 	list-style: none;
-	margin-top: 150px;
+	margin-top: 100px;
 	line-height: 1.5;
 }
 .showcase li{
@@ -393,6 +424,7 @@ text-align: left;
 }
 .overlay h1{
 	padding: 20%;
+	color: #fff;
 }
 
 .sectionBanner{
