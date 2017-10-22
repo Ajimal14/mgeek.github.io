@@ -405,7 +405,7 @@ padding: 15% 15% 0% 15%;
 	text-align: center;
 	float: left;
 	margin-top: 100px;
-	background: url('../img/sidebar.jpeg');
+	background: url('../img/chanel1.jpg');
 	background-size: cover;
 	}
 .overlay {
@@ -524,7 +524,7 @@ padding: 15% 15% 0% 15%;
 	transition: 0.5s;
 	transform: rotate(90deg);
 	position: fixed;
-}
+	}
 .slider {
 	width: 80%;
 	transition: 1s;

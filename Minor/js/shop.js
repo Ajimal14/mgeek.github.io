@@ -43,6 +43,62 @@ document.querySelector(".rightMainContent").innerHTML = arr.map(item => `<div cl
 }
 //Initially Displaying Products
 showProducts(mainArray);
+//This Function Evaluates The URL For id Attribute thrown by Index.html
+// a href="shop.html#'property name'"
+(()=>{
+    if(document.location.href.includes('men')){
+        showProducts(gender("male"));
+    }
+    else if (document.location.href.includes("women")){
+        showProducts(gender("female"));    
+    }
+    else if (document.location.href.includes("clothes")){
+        showProducts(mainArray.filter((a)=> a.type !== 'footwear' && a.type !== 'fragnance'));    
+    }
+    else if (document.location.href.includes("topwear")){
+        showProducts(type("topwear"));    
+    }
+    else if (document.location.href.includes("bottoms")){
+        showProducts(type("bottoms"));    
+    }
+    else if (document.location.href.includes("fragnance")){
+        showProducts(type("fragnance"));    
+    }
+    else if (document.location.href.includes("footwear")){
+        showProducts(type("footwear"));    
+    }
+    else if (document.location.href.includes("#mclothe")){
+        currentArr = mainArray;
+        let c = gender("male"); 
+        showProducts(c.filter((a)=> a.type !== 'footwear' && a.type !== 'fragnance'));
+    }
+    else if (document.location.href.includes("mshoes")){
+        currentArr = mainArray;
+        let c = gender("male"); 
+        showProducts(c.filter(item => item.type == "footwear"));
+    }
+    else if (document.location.href.includes("#mfrag")){
+        currentArr = mainArray;
+        let c = gender("male");
+        showProducts(c.filter(item => item.type == "fragnance"));
+    }
+
+    else if (document.location.href.includes("#wclothe")){
+        currentArr = mainArray;
+        let d = gender("female"); 
+        showProducts(d.filter((a)=> a.type !== 'footwear' && a.type !== 'fragnance'));
+    }
+    else if (document.location.href.includes("#wshoes")){
+        currentArr = mainArray;
+        let d = gender("female"); 
+        showProducts(d.filter(item => item.type == "footwear"));
+    }
+    else if (document.location.href.includes("#wfrag")){
+        currentArr = mainArray;
+        let d = gender("female"); 
+        showProducts(d.filter(item => item.type == "fragnance"));
+    }
+})();
 
 //this IIFE(implicitly invoked function expression) sets the color pickers color according to their ids
 // To Add Color Just Set The Id of the Div the Color You Want to Set and add class 'colorpicker'
@@ -60,7 +116,7 @@ Array.prototype.slice.call(nodeList).map((a)=> a.style.backgroundColor = a.id);
 //This Code Uses The Event Method To Pick The H4 Element and Run The Filter Functions on them
 //This Method Keeps The Dom Clean For Less Ambiguity
 $(".sidebar h4,.colorpicker").click(function(event) {
-    var text = $(event.target).text();
+    var text = event.target.innerText;
     	var a = event.target.id; //this is just for using color filter
         if(sex.includes(text)) {
     			currentArr = gender(text);
