@@ -462,7 +462,7 @@ padding: 15% 15% 0% 15%;
 	cursor: pointer;
 }
 .filterContainer {
-	margin-top: 100%;
+	margin-top: 200px;
 }
 .sidebar h4:active {
 	color: red;
@@ -507,13 +507,23 @@ padding: 15% 15% 0% 15%;
 			font-style: italic;
 		}
 .ham {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
-	color: red;
 	z-index: 1000;
-	font-size: 40px;
+	font-size: 20px;
 	cursor: pointer;
+	font-size: 40px;
+	color: #fff;
+	margin-top: 10px;
+	margin-left: 10px;
+	transform: rotate(0deg);
+	transition: 0.5s;
+}
+.ham.open {
+	transition: 0.5s;
+	transform: rotate(90deg);
+	position: fixed;
 }
 .slider {
 	width: 80%;
@@ -532,6 +542,9 @@ padding: 15% 15% 0% 15%;
 	margin-left:  15px;
 	margin-top: 10px;
 	cursor: pointer;
+}
+.removeFilters {
+	color: red;
 }
 /*Responsive Code Starts Here*/
 @media screen and (max-width: 480px) {

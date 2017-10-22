@@ -48,8 +48,8 @@ showProducts(mainArray);
 // To Add Color Just Set The Id of the Div the Color You Want to Set and add class 'colorpicker'
 // <div class="colorpicker" id="white"></div>
 (()=> {
-let nodeList = document.querySelectorAll(".colorpicker");
-Array.prototype.slice.call(nodeList).map((a)=>a.style.backgroundColor = a.id);
+let nodeList = [...document.querySelectorAll(".colorpicker")];
+nodeList.map((a)=>a.style.backgroundColor = a.id);
 })();
 
 (()=> {
@@ -86,4 +86,7 @@ $(".sidebar h4,.colorpicker").click(function(event) {
 		document.querySelector(".rightMainContent").innerHTML = '<h1>Fuckk OFF You Little Peice of SHit Nothing here</h1>';
 	 }
     })();
+    $(".removeFilters").click(()=> {currentArr = mainArray ;
+        showProducts(currentArr);
+    });
     });
