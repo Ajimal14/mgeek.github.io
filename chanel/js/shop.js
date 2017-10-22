@@ -25,9 +25,13 @@ createProduct("shirt","male","Crew Neck","one","500","s","white");
 createProduct("heels","female","Brass Flats","one","5600","s","white");
 createProduct("heels","female","Heels","one","9800","m","red");
 createProduct("dress","female","Tranches","one","1000","s","pink");
-createProduct("tshirt","female","Classic V Neck","one","500","l","priceink");
+createProduct("tops","female","Classic V Neck","one","500","l","priceink");
 createProduct("dress","female","Black Down","one","2500","m","pink");
 createProduct("heels","female","Lacies","one","2500","m","white");
+createProduct("fragnance","female","Laevs","one","2500","m","white");
+createProduct("fragnance","female","Rosen El","one","2500","m","white");
+createProduct("fragnance","male","Firewood","one","2500","m","white");
+createProduct("fragnance","male","Polish Eu'D","one","2500","m","white");
 currentArr = mainArray;
 
 // These are the Generic Filter Functions That Will Filter The Items On The Array Of Objects
@@ -58,31 +62,23 @@ showProducts(mainArray);
     else if (document.location.href.includes("shirt")){
         showProducts(type("shirt"));
     }
-    else if (document.location.href.includes("mshoes")){
-        currentArr = mainArray;
-        let c = gender("male"); 
-        showProducts(c.filter(item => item.type == "footwear"));
+    else if (document.location.href.includes("boots")){
+     showProducts(type("boots"));
+     }
+    else if (document.location.href.includes("tops")){
+     showProducts(type("tops"));
+     }
+    else if (document.location.href.includes("heels")){
+    showProducts(type("heels"));
     }
-    else if (document.location.href.includes("#mfrag")){
-        currentArr = mainArray;
-        let c = gender("male");
-        showProducts(c.filter(item => item.type == "fragnance"));
+    else if (document.location.href.includes("mfrag")){
+    showProducts(gender("male").filter((a)=>a.type == "fragnance"));
     }
-
-    else if (document.location.href.includes("#wclothe")){
-        currentArr = mainArray;
-        let d = gender("female"); 
-        showProducts(d.filter((a)=> a.type !== 'footwear' && a.type !== 'fragnance'));
+    else if (document.location.href.includes("wfrag")){
+    showProducts(gender("female").filter((a)=>a.type == "fragnance"));
     }
-    else if (document.location.href.includes("#wshoes")){
-        currentArr = mainArray;
-        let d = gender("female"); 
-        showProducts(d.filter(item => item.type == "footwear"));
-    }
-    else if (document.location.href.includes("#wfrag")){
-        currentArr = mainArray;
-        let d = gender("female"); 
-        showProducts(d.filter(item => item.type == "fragnance"));
+    else if (document.location.href.includes("jackets")){ 
+        showProducts(gender("female").filter(item => item.type == "tshirt"));
     }
 })();
 
