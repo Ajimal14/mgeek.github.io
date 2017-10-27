@@ -1,0 +1,27 @@
+var mainArray=[];var currentArr=[];let sex=['male','female'];let sizes=['s','m','l','xl'];let colors=["white","black","red","yellow","blue"];let types=['Dress','Shirt','Tshirt','Fragnance','Heels','Boots'];var product=function(type,gender,name,image,price,size,color){this.type=type;this.gender=gender;this.name=name;this.image=image;this.price=price;this.size=size;this.color=color}
+var createProduct=(type,gender,name,image,price,size,color)=>{var ob=new product(type,gender,name,image,price,size,color);mainArray.push(ob)}
+createProduct("boots","male","Old White Sneakers","item","2500","s","red");createProduct("tshirt","male","Classic Polo","item","3500","m","pink");createProduct("shirt","male","Crew Neck","item","500","s","white");createProduct("jacket","male","Classic Denim","item2","5600","s","white");createProduct("jacket","male","Classic Leather","item2","5600","s","white");createProduct("jacket","male","Classic Faux","item2","5600","s","white");createProduct("jacket","female","Fade Denim","item","5600","s","white");createProduct("jacket","female","The Classic Fur","item","5600","s","red");createProduct("jacket","female","Trech Jacket","item","5600","s","white");createProduct("bags","female","Case Capade","item","5600","s","white");createProduct("bags","female","Flats Flam","item","5600","s","white");createProduct("bags","female","Blanca","item","5600","s","white");createProduct("bags","male","Traverller","item","5600","s","white");createProduct("bags","male","Menalad","item","5600","s","white");createProduct("bags","male","Rubims","item","5600","s","white");createProduct("heels","female","Brass Flats","item","5600","s","white");createProduct("heels","female","Heels","item","9800","m","red");createProduct("dress","female","Tranches","item","1000","s","pink");createProduct("tops","female","Classic V Neck","item","500","l","priceink");createProduct("dress","female","Black Down","item","2500","m","pink");createProduct("heels","female","Lacies","item","2500","m","white");createProduct("fragnance","female","Laevs","item","2500","m","white");createProduct("fragnance","female","Rosen El","item","2500","m","white");createProduct("fragnance","male","Firewood","item","2500","m","white");createProduct("fragnance","male","Polish Eu'D","item","2500","m","white");currentArr=mainArray;var gender=(inp)=>{return currentArr.filter(item=>item.gender===inp)}
+var type=(inp)=>{return currentArr.filter(item=>item.type===inp)}
+var size=(inp)=>{return currentArr.filter(item=>item.size===inp)}
+var color=(inp)=>{return currentArr.filter(item=>item.color===inp)}
+showProducts=(arr)=>{document.querySelector(".rightMainContent").innerHTML=arr.map(item=>`<div class="item"><img src="img/${item.image}.jpg">
+<h1>${item.name}</h1><h3>${item.price}</h3></div>`).join('')}
+showProducts(mainArray);(()=>{if(document.location.href.includes('men')){currentArr=gender("male");showProducts(currentArr)}
+else if(document.location.href.includes("women")){currentArr=gender("female");showProducts(currentArr)}
+else if(document.location.href.includes("dress")){currentArr=type("dress");showProducts(currentArr)}
+else if(document.location.href.includes("fragnance")){currentArr=type("fragnance");showProducts(currentArr)}
+else if(document.location.href.includes("jackets")){currentArr=type("jacket");showProducts(currentArr)}
+else if(document.location.href.includes("shirt")){currentArr=type("shirt");showProducts(currentArr)}
+else if(document.location.href.includes("boots")){currentArr=type("boots");showProducts(currentArr)}
+else if(document.location.href.includes("tops")){currentArr=type("tops");showProducts(currentArr)}
+else if(document.location.href.includes("heels")){currentArr=type("heels");showProducts(currentArr)}
+else if(document.location.href.includes("mfrag")){currentArr=gender("male").filter((a)=>a.type=="fragnance");showProducts(currentArr)}
+else if(document.location.href.includes("wfrag")){currentArr=gender("female").filter((a)=>a.type=="fragnance");showProducts(currentArr)}
+else if(document.location.href.includes("mjacket")){currentArr=gender("male").filter((a)=>a.type=="jacket");showProducts(currentArr)}
+else if(document.location.href.includes("wjacket")){currentArr=gender("female").filter((a)=>a.type=="jacket");showProducts(currentArr)}
+else if(document.location.href.includes("mbag")){currentArr=gender("male").filter((a)=>a.type=="bags");showProducts(currentArr)}
+else if(document.location.href.includes("wbag")){currentArr=gender("female").filter((a)=>a.type=="bags");showProducts(currentArr)}})();(()=>{let nodeList=[...document.querySelectorAll(".colorpicker")];nodeList.map((a)=>a.style.backgroundColor=a.id)})();(()=>{let nodeList=document.querySelectorAll(".item");Array.prototype.slice.call(nodeList).map((a)=>a.style.backgroundColor=a.id)})();(()=>{document.querySelector('#categoryDrop').innerHTML=types.map((a)=>`<h4>${a}</h4>`).join('')})();$(".sidebar h4,.colorpicker").click(function(event){var text=event.target.innerText;var a=event.target.id;if(sex.includes(text)){currentArr=gender(text);showProducts(currentArr)}
+else if(sizes.includes(text)){currentArr=size(text)
+showProducts(currentArr)}
+else if(colors.includes(a)){console.log(a);currentArr=color(a);showProducts(currentArr)}
+else{currentArr=type(text.toLowerCase());showProducts(currentArr)}(function(){currentArr=mainArray;let a=document.querySelector(".rightMainContent").innerHTML;if(a==""){showProducts(currentArr)}})();$(".removeFilters").click(()=>{showProducts(currentArr)})})

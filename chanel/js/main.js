@@ -1,4 +1,4 @@
-$('.bigNav img , #ham , #close, .slideInMenu, .sidebar ,.megaMenu, .womenDynamic , #filterDrop, #categoryDrop , #sizesDrop, #colorsDrop , #closeShop').hide();
+$('.bigNav img , #ham , #close, .slideInMenu ,.megaMenu, .womenDynamic , #filterDrop, #categoryDrop , #sizesDrop, .desc, #colorsDrop , #closeShop').hide();
 //FIXED HEADER
 $(window).scroll(function(){
     if ($(window).scrollTop() >= 600) {
@@ -73,11 +73,6 @@ $('#categoryDrop').slideUp();
 $('#filterDrop').slideUp();
 $('#colorsDrop').slideToggle();
 });
-  $('.ham').click(function(){
-    $(this).toggleClass('open');
-    $('.sidebar').toggle('slide', {direction: 'left'},700);
-    $('.rightMainContent , .shopNavBar').toggleClass('slider');
-  });
 //SMOOTH SCROLL
 $(function() {
   $('a[href*="#"]:not([href="#"])').click(function() {
