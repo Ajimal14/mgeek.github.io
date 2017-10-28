@@ -3,7 +3,7 @@ var currentArr = [];
 var typeArr = [];
 let sex = ['mens','womens'];
 let sizes = ['s','m','l','xl'];
-let colors = ["white","black","red","yellow","blue"];
+let colors = ["white","black","red","yellow","blue","grey","brown"];
 let types = ['Shirt','Tshirt','Jacket','Tshirt','Fragnance','Bags','Boots','Heels'];
 
 //Constructor Function For Object Justification
@@ -106,7 +106,7 @@ createProduct("bags","mens","Maroon","mensbag10","5600","s","red");
 createProduct("fragnance","womens","Laevs","wperfume1","2500","m","white");
 createProduct("fragnance","womens","Laevs","wperfume2","2500","m","white");
 createProduct("fragnance","womens","Laevs","wperfume3","2500","m","white");
-createProduct("fragnance","womens","Laevs","wperfume4","2500","m","white");
+createProduct("fragnance","womens","Laevs","wShirtperfume4","2500","m","white");
 createProduct("fragnance","womens","Laevs","wperfume5","2500","m","white");
 createProduct("fragnance","womens","Laevs","wperfume6","2500","m","white");
 createProduct("fragnance","womens","Laevs","wperfume7","2500","m","white");

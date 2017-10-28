@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Oswald|Shadows+Into+Light');
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100');
-@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 /*Universal Css Styles*/
 body {
@@ -73,6 +73,7 @@ font-family: 'Oswald', sans-serif;
 	float: right;	
 	margin-top: 30px;
 }
+/*On Hover Shop Styles*/
 .menDynamic div {
 	width: 30%;
 	height: 300px;
@@ -125,6 +126,7 @@ font-family: 'Oswald', sans-serif;
 	background: url("../img/womenShoes.jpg");
 	background-size: cover;	
 }
+/*Mobile Menu Styles*/
 .mobileNav img{
 	width: 30%;
 	height: 60px;
@@ -190,39 +192,6 @@ font-family: 'Oswald', sans-serif;
 }
 .fixed-header ul li a {
 		font-size: 22px;
-}
-.shopNavBar {
-	width: 100%;
- 	position: fixed;
- 	top:0; 
- 	right: 0;
-  	z-index: 1000;
-  	height: 80px;
-  	font-size: 20px;
-  	background:rgba(44,44,44,0.8);
-	margin: 0 auto;
-	padding: 0;
-	text-align: center;
-	transition: 1s;
-	}
-.shopNavBar ul {
-	list-style: none;
-	margin: 0 auto;
-	padding: 0;
-}
-
-.shopNavBar ul li {
-	display: inline-block;
-	padding: 20px;
-	margin: 0 auto;
-}
-
-.shopNavBar ul li a {
-margin: 0 auto;
-text-decoration: none;
-color: #fff;
-font-size: 24px;
-font-family: 'Oswald', sans-serif;
 }
 
 					/*Universal Footer*/
@@ -451,114 +420,8 @@ text-align: left;
 	height: 900px;
 	background: red;
 }
-/*Shop Styles*/
-.mainContainer {
-	width: 100%;
-	padding: 0;
-	margin: 0 auto;
-}
-.sidebar {
-	width: 15%;
-	float: left;
-	height: 800px;
-	font-size: 20px;
-	color: #2c2c2c;
-	font-family: 'Raleway', sans-serif;	
-	top:0;
-	left: 0;
-	background:#fff ;
-	position: fixed;
-	text-align: center;
-	margin-right: 15%;
-	padding: 10px;
-	cursor: pointer;
-	}
-.sidebar h2{
-	font-size:20px;
-}
-.sidebar h4 {
-	font-size: 15px;
-	color: #4c4c4c;
-}
-.filterContainer {
-	margin-top: 140px;
-}
-.sidebar h4:active {
-	color: red;
-	/*transition: 1s;*/
-}
-.sidebar h4:hover {
-	color: gold;
-	transition: 1s;
-}
-.sidebar label {
-	margin-left: 70px;
-	transition: 0.4s;
-	margin-top: 10px;
-}
-
-.sidebar label:hover {
-	color: #f39c12;
-	transition: 0.4s;
-}
-.rightMainContent {
-	width: 80%;
-	height: 1800px;
-	float: right;	
-	transition: 1s;
-}
-.description {
-padding: 10px;
-}
-.item {
-		width: 20%;
-		height: 400px;
-		float: left;
-		text-align: center !important;
-		background: #FFF;
-		margin-left: 20px;
-		margin-bottom: 10px;
-		}
-		.item img {
-			width: 90%;
-			height: 250px;
-			padding: 10px;
-			}
-		.description h1{
-			color: black;
-			font-size: 22px;
-			font-family: 'Oswald';
-			width: 100%;
-			text-align: center;
-			padding: 0;
-		}
-		.description h3 {
-			font-family: 'Raleway';
-			padding: 0 ;
-			font-size: 13px;
-			margin: 0 auto;
-			width: 100%;
-		}
-
-#colorsDrop {
-	width: 40%;
-	margin: 0 auto;
-}
-.colorpicker{
-	width: 20px;
-	height: 20px;
-	border-radius: 100px;
-	background-color: inherit;
-	float: left;
-	margin-left:  15px;
-	margin-top: 10px;
-	cursor: pointer;
-}
-.removeFilters {
-	color: gold;
-}
 /*Responsive Code Starts Here*/
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 320px) {
  .bignNav {
  	margin-top: -150px;
 	width: 100%;		
@@ -576,8 +439,9 @@ padding: 10px;
 	height: 400px;
 }
 .mainBanner img{
-padding-left:5%;
+padding-left:10%;
 padding-top: 53%;
+width: 80%;
 }
 .mainBanner video {
    position: absolute;
@@ -595,15 +459,28 @@ color: #fff;
 font-size: 20px;
 font-family: 'Raleway', sans-serif;	
 }
-.left {
-	width: 100%;
-	margin-left: 0px;
-	display: block;
+.container {
+height: 500px;
+background-size: contain;
+font-size: 15px;
 }
-.right {
-	width: 100%;
-	margin-left: 0px;
-	display: block;
+.ad4,.ad2 {
+	display: none;
 }
+.overlay {
+	width: 80%;
+	height: 170px;
+	padding: 0;
+	background:rgba(31,27,54,0.3);
+	border-radius: 100%;
+}
+.overlay h1 {
+	font-size: 20px;
+}
+.footer {
 
+}
+.rightFooterLinks {
+	display: none;		
+}
 }

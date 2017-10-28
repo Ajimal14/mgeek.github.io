@@ -3,6 +3,7 @@ $('.bigNav img , #ham , #close, .slideInMenu ,.megaMenu, .womenDynamic , #filter
 $(window).scroll(function(){
     if ($(window).scrollTop() >= 600) {
        $('.bigNav').addClass('animated fadeInDown').addClass('fixed-header');
+       $('.sidebar, .shopNavBar').addClass('fixed');
     	$('.bigNav img').show();
     if($(window).width() < 481)
 		{    
@@ -13,6 +14,7 @@ $(window).scroll(function(){
     }
     else {
        $('.bigNav').removeClass('fixed-header animated fadeInUp');
+       $('.sidebar,.shopNavBar').removeClass('fixed');
     	$('.bigNav img').hide();
  	if($(window).width() < 481)
 		{    
