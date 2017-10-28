@@ -126,7 +126,6 @@ font-family: 'Oswald', sans-serif;
 	background: url("../img/womenShoes.jpg");
 	background-size: cover;	
 }
-/*Mobile Menu Styles*/
 .mobileNav img{
 	width: 30%;
 	height: 60px;
@@ -421,7 +420,7 @@ text-align: left;
 	background: red;
 }
 /*Responsive Code Starts Here*/
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 480px) {
  .bignNav {
  	margin-top: -150px;
 	width: 100%;		
@@ -439,9 +438,8 @@ text-align: left;
 	height: 400px;
 }
 .mainBanner img{
-padding-left:10%;
+padding-left:5%;
 padding-top: 53%;
-width: 80%;
 }
 .mainBanner video {
    position: absolute;
@@ -459,28 +457,15 @@ color: #fff;
 font-size: 20px;
 font-family: 'Raleway', sans-serif;	
 }
-.container {
-height: 500px;
-background-size: contain;
-font-size: 15px;
+.left {
+	width: 100%;
+	margin-left: 0px;
+	display: block;
 }
-.ad4,.ad2 {
-	display: none;
+.right {
+	width: 100%;
+	margin-left: 0px;
+	display: block;
 }
-.overlay {
-	width: 80%;
-	height: 170px;
-	padding: 0;
-	background:rgba(31,27,54,0.3);
-	border-radius: 100%;
-}
-.overlay h1 {
-	font-size: 20px;
-}
-.footer {
 
-}
-.rightFooterLinks {
-	display: none;		
-}
 }
