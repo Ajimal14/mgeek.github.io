@@ -416,8 +416,9 @@ padding: 0;
 	padding: 15px;
 }
 .mainBanner{
-	height: 650px;
+	height: 600px;
 	width: 100%;
+	margin-bottom: -100px;
 	background: url('../img/wom.jpg');
 }
 .mainBanner img{
@@ -435,7 +436,7 @@ display: none;
 .container{
 	width: 100%;
 	height: 700px;
-	background-size: auto;
+	background-size: 1000px 100%; 
 }
 
 .showcase li  {
@@ -448,6 +449,7 @@ font-family: 'Raleway', sans-serif;
 display: none;
 }
 .overlay {
+	margin: 0 auto;
 	width: 100%;
 }
 .overlay h1 {
