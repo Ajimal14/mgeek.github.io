@@ -31,7 +31,7 @@ let showData = (loc,inp)=>{
 //This Will Show The Show Data On The GPS coordinates if mobile and google geolocation api if desktop
 document.querySelector('.planDate').addEventListener('click',()=>{
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    console.log(navigator.userAgent);
+    document.querySelector('#map iframe').height = '1500px';
     if(navigator.geolocation)  navigator.geolocation.getCurrentPosition(fetchZomatoByGps);
   }
   else { showPlaces(inp.nearby_restaurants) }
@@ -60,6 +60,7 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
 });
 
 })()
+
 
 //Set The Result to Variable For Further Refinement and Filteration
 //But What Result Exactly???
