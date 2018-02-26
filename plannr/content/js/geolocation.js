@@ -8,8 +8,7 @@ showData(currentLocation,zomatoData);
   let fetchZomato = (inp) => fetch(`https://developers.zomato.com/api/v2.1/geocode?lat=${inp.location.lat}&lon=${inp.location.lng}`, { method: 'GET', headers: new Headers({'user-key': '4319603cbb48b9c4fb5a3211714b89d1'})})
   // This Will Trigger When Mobile Device
   let fetchZomatoByGps = (inp) => {
-    console.log(inp);
-    fetch(`https://developers.zomato.com/api/v2.1/geocode?lat=${inp.coords.latitude}&lon=${inp.coords.longitude}`, { method: 'GET', headers: new Headers({'user-key': '4319603cbb48b9c4fb5a3211714b89d1'})}).then(res=>res.json()).then(data => console.log(data))
+    fetch(`https://developers.zomato.com/api/v2.1/geocode?lat=${inp.coords.latitude}&lon=${inp.coords.longitude}`, { method: 'GET', headers: new Headers({'user-key': '4319603cbb48b9c4fb5a3211714b89d1',"Accept": "application/json"})}).then(res=>res.json()).then(data => showPlaces(data.nearby_restaurants))
     }
 
 let findEstablishment = (id)=>fetch(`https://developers.zomato.com/api/v2.1/establishments?city_id=${id}`,{
