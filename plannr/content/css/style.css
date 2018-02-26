@@ -170,7 +170,9 @@ body {
   width: 100%;
 }
 .navbar {
-  height: 30px;
+  height: 50px;
+  text-align: center;
+  position: fixed;
 }
 .logo {
   padding: 5px 10px;
@@ -178,6 +180,7 @@ body {
   text-align: center;
   font-weight: bold;
   margin: 0 auto;
+  float: none;
 }
 
     .search {
@@ -194,6 +197,7 @@ body {
       width: 100%;
       margin: 0 auto;
       padding: 0;
+      position: static;
       background: linear-gradient(to right, rgba(203,45,62,0.7), rgba(239,71,58,0.7)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       }
     #rest li {
@@ -205,14 +209,17 @@ body {
       font-size: 25px;
       color: #fff;
     }
-
+    hr {
+     margin-top: 0px;
+     padding: 0;
+     }
     .headings {
       font-size: 30px;
     }
   #searchPlaces {
     float: none;
     padding: 0;
-    margin-top: 7%;
+    margin-top: 5%;
     font-size: 20px;
   }
   .search input {
@@ -230,13 +237,37 @@ body {
     font-size: 20px!important;
   }
 
-  #map {
+    #map {
     width: 100%;
-    height: 1500px;
     border-top: #DD3A3C 5px solid;
-    position: relative;
-    z-index: 1;
+    position: static;
+    z-index: 0;
+    height:auto;
+    background: #fff;
   }
+
+  .filters {
+    width: 100%;
+    z-index: 0;
+    position: static;
+    float: none;
+  }
+  .filters ul {
+    list-style: none;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .filters ul li {
+    display: inline-block;
+    margin: 5px 5px;
+    font-size: 20px;
+    padding: 7px;
+    border-radius: 5px;
+  }
+
+
+
  }
   /*@media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ }*/
   /*@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }*/
