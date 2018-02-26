@@ -2,6 +2,9 @@
 (async()=>{
 let currentLocation = await( await fetch('https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyBBI-8mtAhBWlHhS-pudH7xbi2IKMnMPOo',{method : 'POST' , headers : new Headers({"considerIp": "false"}) })).json()
 let zomatoData = await(await fetchZomato(currentLocation)).json()
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  document.querySelector('#map').innerHTML = '';
+ }
 showData(currentLocation,zomatoData);
 })()
 // Fetching the values from zomato
@@ -31,7 +34,6 @@ let showData = (loc,inp)=>{
 //This Will Show The Show Data On The GPS coordinates if mobile and google geolocation api if desktop
 document.querySelector('.planDate').addEventListener('click',()=>{
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    document.querySelector('#map iframe').height = '1500px';
     if(navigator.geolocation)  navigator.geolocation.getCurrentPosition(fetchZomatoByGps);
   }
   else { showPlaces(inp.nearby_restaurants) }
@@ -54,10 +56,20 @@ findEstablishment(inp.location.city_id);
 //Events and Handlers
 let showPlaces = (arr) => {window.scrollTo(0,700); document.querySelector('#rest').innerHTML = arr.map(a => `<li data-address='${a.restaurant.location.address.replace(' ','+')}'>${a.restaurant.name}</li>`).join('')}
 let showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML = arr.map(a => `<li data-id>${a.establishment.name}</li>`).join('')}
-document.querySelector('#rest').addEventListener('click',(e)=> {document.querySelector('#map iframe').src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC3ZfZ4hgIuv1_tUADFvzgZFNInJILI3Rk&q="+e.target.dataset.address.replace(' ','+')})
+document.querySelector('#rest').addEventListener('click',(e)=> {
+//This Will Directly Open it on the map app!
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+window.location.href = "https://www.google.com/maps/dir//"+e.target.dataset.address.replace(' ','+');
+}
+else {
+  document.querySelector('#map iframe').src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC3ZfZ4hgIuv1_tUADFvzgZFNInJILI3Rk&q="+e.target.dataset.address.replace(' ','+')
+}
+})
+
 document.querySelector('.filters ul').addEventListener('click',(e)=> {
   filterByEstablishment(currentLocation,e.target.dataset.id);
 });
+
 
 })()
 
