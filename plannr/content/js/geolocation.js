@@ -1,3 +1,4 @@
+(()=>{
 (async()=>{
 let currentLocation = await( await fetch('https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyBBI-8mtAhBWlHhS-pudH7xbi2IKMnMPOo',{method : 'POST' , headers : new Headers({"considerIp": "false"}) })).json()
 let zomatoData = await(await fetchZomato(currentLocation)).json()
@@ -11,6 +12,7 @@ showData(currentLocation,zomatoData);
     fetch(`https://developers.zomato.com/api/v2.1/geocode?lat=${inp.coords.latitude}&lon=${inp.coords.longitude}`, { method: 'GET', headers: new Headers({'user-key': '4319603cbb48b9c4fb5a3211714b89d1',"Accept": "application/json"})}).then(res=>res.json()).then(data => showPlaces(data.nearby_restaurants))
     }
 
+//This Will Show The Establishment like Bakery,Cafe Etc
 let findEstablishment = (id)=>fetch(`https://developers.zomato.com/api/v2.1/establishments?city_id=${id}`,{
   method: 'GET',
   headers: new Headers({'user-key': '4319603cbb48b9c4fb5a3211714b89d1'})
@@ -23,14 +25,19 @@ fetch(`https://developers.zomato.com/api/v2.1/search?lat=${loc.location.lat}&lon
 .then(res => res.json())
 .then(data => console.log(data))
 }
-let currentLocation;
+let currentLocation,mainArr;
 let showData = (loc,inp)=>{
+  mainArr = inp;
+//This Will Show The Show Data On The GPS coordinates if mobile and google geolocation api if desktop
 document.querySelector('.planDate').addEventListener('click',()=>{
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    console.log(navigator.userAgent);
     if(navigator.geolocation)  navigator.geolocation.getCurrentPosition(fetchZomatoByGps);
   }
-  else {showPlaces(inp.nearby_restaurants)}
+  else { showPlaces(inp.nearby_restaurants) }
 });
+
+//This will Fetch According To The Place You Entered
 document.querySelector('#searchPlaces').addEventListener('click',()=> {
 fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${document.querySelector('#getCity').value.replace(' ','+')}&key=AIzaSyDMiNEO6NFZZywezqZ0A8YLQ5cd-eMhb6M`)
 .then(r => r.json())
@@ -42,11 +49,19 @@ fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${document.quer
 })
 currentLocation = loc;
 findEstablishment(inp.location.city_id);
-// console.log(inp);
 }
+
+//Events and Handlers
 let showPlaces = (arr) => {window.scrollTo(0,700); document.querySelector('#rest').innerHTML = arr.map(a => `<li data-address='${a.restaurant.location.address.replace(' ','+')}'>${a.restaurant.name}</li>`).join('')}
 let showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML = arr.map(a => `<li data-id>${a.establishment.name}</li>`).join('')}
 document.querySelector('#rest').addEventListener('click',(e)=> {document.querySelector('#map iframe').src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC3ZfZ4hgIuv1_tUADFvzgZFNInJILI3Rk&q="+e.target.dataset.address.replace(' ','+')})
 document.querySelector('.filters ul').addEventListener('click',(e)=> {
   filterByEstablishment(currentLocation,e.target.dataset.id);
 });
+
+})()
+
+//Set The Result to Variable For Further Refinement and Filteration
+//But What Result Exactly???
+//There is no actual result there
+// it returns lots of restaurant and we have to filter it by
