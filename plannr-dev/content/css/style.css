@@ -182,8 +182,10 @@ body {
   margin: 0 auto;
   float: none;
 }
-
-    .search {
+.container {
+  height: auto;
+}
+  .search {
       padding:  25% 0%;
       text-align: center;
       margin: 0 auto;
@@ -199,6 +201,14 @@ body {
       padding: 0;
       position: static;
       background: linear-gradient(to right, rgba(203,45,62,0.7), rgba(239,71,58,0.7)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+      #rest h1 {
+        padding: 10px 0px;
+        font-family: 'Satisfy', cursive;
+        text-shadow: rgba(255,255,255,0.5) 0px 1.5px 1.5px;
+        text-align: center;
+        font-size: 20px;
+        color: #fff;
       }
     #rest li {
       padding: 10px 0px;
@@ -238,12 +248,7 @@ body {
   }
 
     #map {
-    width: 100%;
-    border-top: #DD3A3C 5px solid;
-    position: static;
-    z-index: 0;
-    height:auto;
-    background: #fff;
+      display: none;
   }
 
   .filters {
@@ -265,7 +270,14 @@ body {
     padding: 7px;
     border-radius: 5px;
   }
-
+.results  li{
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  cursor:pointer;
+  text-align: left;
+  padding: 10px;
+}
 
 
  }
