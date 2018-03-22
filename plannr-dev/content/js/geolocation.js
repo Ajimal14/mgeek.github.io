@@ -66,17 +66,8 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
       })
 });
 document.querySelector('.results').addEventListener('click',(e)=>{
- (async()=>{
-   let currentAddr = await ( await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${currentLocation.lat},${currentLocation.lng}&key=AIzaSyCnWc5Z2WpBpgFC-9h2N04rM1iQPX7u6yw`)).json()
    let addr = e.target.dataset.address;
-   console.log(currentAddr);
-   let data = await ( await fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${currentAddr.results[0]}&destinations=${addr}&key=AIzaSyC5b-rPcanrIQkMY4wd2Sq7C8jdjz-rZJc`,
-     {
-       method:'GET',
-       // mode :'no-cors'
-       headers : new Headers({
-         'Access-Control-Allow-Origin': '*'
-       })
-     })).json()
- })()
+   let data = fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${currentLocation.lat},${currentLocation.lng}&destinations=${addr}&key=AIzaSyC5b-rPcanrIQkMY4wd2Sq7C8jdjz-rZJc`)
+   .then(res => res.json())
+   .then(data => console.log(data));
 })
