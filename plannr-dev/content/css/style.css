@@ -163,7 +163,16 @@ z-index: 100;
   cursor: pointer;
   background: rgba(255,255,255,0.1);
 }
-
+.popup {
+  width: 90%;
+  height: 400px;
+  background: green;
+  position: fixed;
+  top: 20%;
+  left: 5%;
+  z-index: 100;
+  display: none;
+}
   @media only screen and (max-width:500px)  {
   /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
 body {
@@ -280,8 +289,50 @@ body {
   font-family: 'Josefin Slab', serif;
 font-weight: bolder;
 }
+.popup {
+  width: 80%;
+  height: 400px;
+  background: linear-gradient(to right, rgba(203,45,62,0.9), rgba(239,71,58,0.9));
+  display: none;
+  position: fixed;
+  top:20%;
+  left: 5%;
+  z-index: 1000;
+  padding: 10px;
+  border: 2px solid #fff;
+}
 
-
+.navig {
+  width: 50%;
+  left: 22%;
+  margin: 0 auto;
+  color: #FFF;
+  text-align: center;
+  cursor:pointer;
+  font-family: 'Josefin Slab', serif;
+  font-size: 26px;
+  position: fixed;
+  top: 35%;
+  border: 2px solid #fff;
+}
+.popup hr {
+  position: absolute;
+  top: 55%;
+  left: 12%;
+}
+.plan{
+  width: 50%;
+  left: 22%;
+  margin: 0 auto;
+  color: #FFF;
+  text-align: center;
+  cursor:pointer;
+  font-family: 'Josefin Slab', serif;
+  font-size: 26px;
+  position: fixed;
+  top: 75%;
+  border: 2px solid #fff;
+}
  }
   /*@media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ }*/
   /*@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }*/

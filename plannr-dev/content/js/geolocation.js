@@ -24,15 +24,16 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     }
 else {
   (async()=>{
-    let data = await(await fetch('https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyBBI-8mtAhBWlHhS-pudH7xbi2IKMnMPOo',{method : 'POST' , headers : new Headers({"considerIp": "false"}) })).json()
+    const data = await(await fetch('https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyBBI-8mtAhBWlHhS-pudH7xbi2IKMnMPOo',{ method : 'GET' , headers : new Headers({"considerIp": "false"}) })).json()
     currentLocation.lat = data.location.lat;
     currentLocation.lng = data.location.lng;
+    console.log(data);
     let zomatoData = await( await fetchZomato(currentLocation)).json()
      let est = await ( await findEstablishment(zomatoData.location.city_id)).json()
      showPlacesType(est.establishments);
      currentArray = zomatoData.nearby_restaurants;
+     console.log(currentArray);
     showPlaces(currentArray);
-
   })()
 }
 document.querySelector('#searchPlaces').addEventListener('click',()=> {
@@ -67,7 +68,25 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
 });
 document.querySelector('.results').addEventListener('click',(e)=>{
    let addr = e.target.dataset.address;
-   let data = fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${currentLocation.lat},${currentLocation.lng}&destinations=${addr}&key=AIzaSyC5b-rPcanrIQkMY4wd2Sq7C8jdjz-rZJc`)
+   document.querySelector('.popup').style.display  = 'block';
+   // var myInit = { method: 'GET',
+   //                 headers: myHeaders,
+   //                 mode: 'cors',
+   //                 cache: 'default' };
+   let nr = new Request(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${currentLocation.lat},${currentLocation.lng}&destinations=${addr}&key=AIzaSyC5b-rPcanrIQkMY4wd2Sq7C8jdjz-rZJc`);
+
+   let data = fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${currentLocation.lat},${currentLocation.lng}&destinations=${addr}&key=AIzaSyC5b-rPcanrIQkMY4wd2Sq7C8jdjz-rZJc`,{
+     method: nr.method,
+     mode: 'cors',
+     headers : new Headers({
+       'Access-Control-Allow-Origin' : '*'
+     })
+      })
    .then(res => res.json())
    .then(data => console.log(data));
+   console.log(nr);
+   document.querySelector('.popup').innerHTML  = `<div class='navig'><i class="fa fa-car" aria-hidden="true"></i><br>Navigate</div><hr><div class='plan'><i class="fa fa-users" aria-hidden="true"></i><br>Plan</div>`;
+   document.querySelector('.navig').addEventListener('click',(e)=> {
+  window.location.href = "https://www.google.com/maps/dir//"+addr;
+})
 })
