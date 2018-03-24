@@ -69,14 +69,8 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
 document.querySelector('.results').addEventListener('click',(e)=>{
    let addr = e.target.dataset.address;
    document.querySelector('.popup').style.display  = 'block';
-   // var myInit = { method: 'GET',
-   //                 headers: myHeaders,
-   //                 mode: 'cors',
-   //                 cache: 'default' };
-   let nr = new Request(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${currentLocation.lat},${currentLocation.lng}&destinations=${addr}&key=AIzaSyC5b-rPcanrIQkMY4wd2Sq7C8jdjz-rZJc`);
-
    let data = fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${currentLocation.lat},${currentLocation.lng}&destinations=${addr}&key=AIzaSyC5b-rPcanrIQkMY4wd2Sq7C8jdjz-rZJc`,{
-     method: nr.method,
+     method: 'GET',
      mode: 'cors',
      headers : new Headers({
        'Access-Control-Allow-Origin' : '*'
@@ -84,9 +78,25 @@ document.querySelector('.results').addEventListener('click',(e)=>{
       })
    .then(res => res.json())
    .then(data => console.log(data));
-   console.log(nr);
-   document.querySelector('.popup').innerHTML  = `<div class='navig'><i class="fa fa-car" aria-hidden="true"></i><br>Navigate</div><hr><div class='plan'><i class="fa fa-users" aria-hidden="true"></i><br>Plan</div>`;
+
+   document.querySelector('.popup').innerHTML  = `
+   <span class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+
+   <div class='navig'>
+          <i class="fa fa-car" aria-hidden="true"></i><br>Navigate
+  </div>
+
+   <hr>
+
+   <div class='plan'>
+          <i class="fa fa-users" aria-hidden="true"></i><br>Plan
+   </div>
+                                                `; //Template Ends Here
+
+  document.querySelector('.close').addEventListener('click',()=> {
+     document.querySelector('.popup').style.display = 'none';
+  })
    document.querySelector('.navig').addEventListener('click',(e)=> {
-  window.location.href = "https://www.google.com/maps/dir//"+addr;
-})
+                window.location.href = "https://www.google.com/maps/dir//"+addr;
+                                                                  })
 })
