@@ -2,23 +2,41 @@
   let currentLocation = {};
   let currentArray = [];
 
+//Pure Function Returning Promises
   const fetchZomato = (inp) => fetch(`https://developers.zomato.com/api/v2.1/geocode?lat=${inp.lat}&lon=${inp.lng}`, { method: 'GET', headers: new Headers({'user-key': '4319603cbb48b9c4fb5a3211714b89d1'})})
   const findEstablishment = (id)=>fetch(`https://developers.zomato.com/api/v2.1/establishments?city_id=${id}`,{  method: 'GET',headers: new Headers({'user-key': '4319603cbb48b9c4fb5a3211714b89d1'})})
   const filterByEstablishment = (id)=> fetch(`https://developers.zomato.com/api/v2.1/search?lat=${currentLocation.lat}&lon=${currentLocation.lng}&establishment_type=${id}&sort=real_distance`,{ method: 'GET', headers: new Headers({'user-key': '4319603cbb48b9c4fb5a3211714b89d1'})})
-  const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML = arr.map(a => `<li data-id="${a.establishment.id}">${a.establishment.name}</li>`).join('')}
+  const fetchTime = (origin,destination) => fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${origin.lat},${origin.lng}&destinations=${destination}&key=AIzaSyC5b-rPcanrIQkMY4wd2Sq7C8jdjz-rZJc`,{method: 'GET',mode: 'cors',headers : new Headers({'Access-Control-Allow-Origin' : '*'})})
+  //Markup of Popup
+  const popup = {
+      show : () => {
+      document.querySelector('.popup').style.display  = 'block';
+      document.querySelector('.popup').innerHTML  = `
+        <span class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+        <div class='navig'>
+               <i class="fa fa-car" aria-hidden="true"></i><br>Navigate
+       </div>
+        <hr>
+        <div class='plan'>
+               <i class="fa fa-users" aria-hidden="true"></i><br>Plan
+        </div>
+         `;
+      },
+      close : ()=>{ document.querySelector('.close').addEventListener('click',()=> {  document.querySelector('.popup').style.display = 'none'})}
+  }
+
+//Impure Functions Altering The State
+const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML = arr.map(a => `<li data-id="${a.establishment.id}">${a.establishment.name}</li>`).join('')}
   const showPlaces = (arr) => {
     if(arr != undefined) document.querySelector('#rest').innerHTML = arr.map(a => `<li data-address='${encodeURIComponent(a.restaurant.location.address)}'>${a.restaurant.name}</li>`).join('')
     else document.querySelector('#rest').innerHTML =  `<h1>Sorry We're Connecting Your City to the Grid</h1>`;
   }
-  const fetchTime = (origin,destination) => fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${origin.lat},${origin.lng}&destinations=${destination}&key=AIzaSyC5b-rPcanrIQkMY4wd2Sq7C8jdjz-rZJc`,{method: 'GET',mode: 'cors',headers : new Headers({'Access-Control-Allow-Origin' : '*'})
-       })
+const saveMobileLocation = (inp)=>{
+currentLocation.lat =  inp.coords.latitude;
+  currentLocation.lng =  inp.coords.longitude;
+    }
 
-
-  const saveMobileLocation = (inp)=>{
-    currentLocation.lat =  inp.coords.latitude;
-    currentLocation.lng =  inp.coords.longitude;
-  console.log(currentLocation.lat,currentLocation.lng);
-  }
+//This Check The Device and Method Type To Get The Location
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
           if(navigator.geolocation) navigator.geolocation.getCurrentPosition(saveMobileLocation);
           fetchZomato(currentLocation).then(res => res.json()).then(data => {
@@ -54,35 +72,19 @@
         }
   })()
   })
+
   document.querySelector('#rest').addEventListener('click',(e)=> {
-  //This Will Directly Open it on the map app!
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     let addr = e.target.dataset.address;
-    document.querySelector('.popup').style.display = 'block';
     document.querySelector('.foods').style.display = 'none';
-    document.querySelector('.popup').innerHTML  = `
-    <span class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-
-    <div class='navig'>
-           <i class="fa fa-car" aria-hidden="true"></i><br>Navigate
-   </div>
-
-    <hr>
-
-    <div class='plan'>
-           <i class="fa fa-users" aria-hidden="true"></i><br>Plan
-    </div>
-                                                 `; //Template Ends Here
+     popup.show(); //This Will Show The Popup
   let data = fetchTime(currentLocation,addr)
   .then(res => res.json())
   .then(data => {
    let time = data.rows[0].elements[0].duration.text;
    document.querySelector('.navig').innerHTML = '<i class="fa fa-car" aria-hidden="true"></i><br>'+`${time} away`;
  });
-
-  document.querySelector('.close').addEventListener('click',()=> {
-          document.querySelector('.popup').style.display = 'none';
-                                                                    })
+  popup.close();
   document.querySelector('.navig').addEventListener('click',(e)=> {
   window.location.href = "https://www.google.com/maps/dir//"+addr;
                                                                       })
@@ -92,6 +94,7 @@
   }
   })
   document.querySelector('.filters ul').addEventListener('click',(e)=> {
+    //This is Returning the only type of place you want like fine dining or sweet shop
     filterByEstablishment(e.target.dataset.id)
       .then(res => res.json())
         .then(data => {
@@ -101,32 +104,17 @@
           }
         })
   });
+  //All The Category Based restaurants Are Here
   document.querySelector('.results').addEventListener('click',(e)=>{
      let addr = e.target.dataset.address;
-     document.querySelector('.popup').style.display  = 'block';
-     document.querySelector('.popup').innerHTML  = `
-     <span class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-     <div class='navig'>
-            <i class="fa fa-car" aria-hidden="true"></i><br>Navigate
-    </div>
-     <hr>
-     <div class='plan'>
-            <i class="fa fa-users" aria-hidden="true"></i><br>Plan
-     </div>
-                                                  `; //Template Ends Here
-
+    popup.show();
   let data = fetchTime(currentLocation,addr)
   .then(res => res.json())
   .then(data => {
     let time = data.rows[0].elements[0].duration.text;
     document.querySelector('.navig').innerHTML = '<i class="fa fa-car" aria-hidden="true"></i><br>'+`${time} away`;
   });
-
-
-    document.querySelector('.close').addEventListener('click',()=> {
-       document.querySelector('.popup').style.display = 'none';
-    })
+  popup.close();
      document.querySelector('.navig').addEventListener('click',(e)=> {window.location.href = "https://www.google.com/maps/dir//"+addr;})
   })
-
 })()
