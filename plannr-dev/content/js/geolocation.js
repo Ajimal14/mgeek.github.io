@@ -5,7 +5,7 @@ const findEstablishment = (id)=>fetch(`https://developers.zomato.com/api/v2.1/es
 const filterByEstablishment = (id)=> fetch(`https://developers.zomato.com/api/v2.1/search?lat=${currentLocation.lat}&lon=${currentLocation.lng}&establishment_type=${id}&sort=real_distance`,{ method: 'GET', headers: new Headers({'user-key': '4319603cbb48b9c4fb5a3211714b89d1'})})
 const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML = arr.map(a => `<li data-id="${a.establishment.id}">${a.establishment.name}</li>`).join('')}
 const showPlaces = (arr) => {
-  if(arr != undefined) document.querySelector('#rest').innerHTML = arr.map(a => `<li data-address='${a.restaurant.location.address.replace(' ','+')}'>${a.restaurant.name}</li>`).join('')
+  if(arr != undefined) document.querySelector('#rest').innerHTML = arr.map(a => `<li data-address='${encodeURIComponent(a.restaurant.location.address)}'>${a.restaurant.name}</li>`).join('')
   else document.querySelector('#rest').innerHTML =  `<h1>Sorry We're Connecting Your City to the Grid</h1>`;
 }
 const saveMobileLocation = (inp)=>{
@@ -53,7 +53,29 @@ document.querySelector('#searchPlaces').addEventListener('click',()=> {
 document.querySelector('#rest').addEventListener('click',(e)=> {
 //This Will Directly Open it on the map app!
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-window.location.href = "https://www.google.com/maps/dir//"+encodeURIComponent(e.target.dataset.address);
+  let addr = e.target.dataset.address;
+  document.querySelector('.popup').style.display  = 'block';
+  document.querySelector('.popup').innerHTML  = `
+  <span class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+
+  <div class='navig'>
+         <i class="fa fa-car" aria-hidden="true"></i><br>Navigate
+ </div>
+
+  <hr>
+
+  <div class='plan'>
+         <i class="fa fa-users" aria-hidden="true"></i><br>Plan
+  </div>
+                                               `; //Template Ends Here
+document.querySelector('.close').addEventListener('click',()=> {
+          document.querySelector('.popup').style.display = 'none';
+                                                                  })
+document.querySelector('.navig').addEventListener('click',(e)=> {
+window.location.href = "https://www.google.com/maps/dir//"+addr;
+                                                                    })
+
+
 }
 else {
   document.querySelector('#map iframe').src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC3ZfZ4hgIuv1_tUADFvzgZFNInJILI3Rk&q="+encodeURIComponent(e.target.dataset.address)
