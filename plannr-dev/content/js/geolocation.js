@@ -9,6 +9,8 @@
   //Markup of Popup
   const popup = {
       show : () => {
+      setTimeout(()=>{document.querySelector('.popup').classList.remove('bounceOut')},100);
+      setTimeout(()=>{document.querySelector('.popup').classList.add('bounceIn')},100);
       document.querySelector('.popup').style.display  = 'block';
       document.querySelector('.popup-body').innerHTML  = `
         <div class='navig'>
@@ -21,12 +23,12 @@
          `;
       document.querySelector('.close').addEventListener('click',()=> {
         setTimeout(()=>{document.querySelector('.popup').classList.remove('bounceIn')},100);
-        setTimeout(()=>{document.querySelector('.popup').classList.add('bounceOut')},200);
+        setTimeout(()=>{document.querySelector('.popup').classList.add('bounceOut')},100);
        })
       },
       close : ()=>{
-        document.querySelector('.popup').style.transition = '0.5s';
-        document.querySelector('.popup').style.display = 'none';
+        setTimeout(()=>{document.querySelector('.popup').classList.remove('bounceIn')},100);
+        setTimeout(()=>{document.querySelector('.popup').classList.add('bounceOut')},100);
       }
   }
   document.querySelector('#search').addEventListener('click',()=> {
@@ -89,6 +91,8 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
     })()
   }
   document.querySelector('#rest').addEventListener('click',(e)=> {
+
+    let addr = e.target.dataset.address;
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     document.querySelector('.foods').style.display = 'none';
      popup.show(); //This Will Show The Popup
@@ -118,7 +122,7 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
   });
   //All The Category Based restaurants Are Here
   document.querySelector('.results').addEventListener('click',(e)=>{
-     let addr = e.target.dataset.address;
+    let addr = e.target.dataset.address;
     popup.show();
   let data = fetchTime(currentLocation,addr)
   .then(res => res.json())

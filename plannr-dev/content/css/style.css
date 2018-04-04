@@ -388,14 +388,14 @@ border: 2px solid #fff;
   width: 50%;
   left: 22%;
   margin: 0 auto;
-  color: #FFF;
+  color: #cb2d3e;
   text-align: center;
   cursor:pointer;
   font-family: 'Josefin Slab', serif;
   font-size: 26px;
   position: fixed;
   top: 35%;
-  border: 2px solid #fff;
+  border: 2px solid #cb2d3e;
 }
 
 .bubble {
@@ -438,7 +438,7 @@ border: 2px solid #fff;
 }
 .close {
   float: right;
-  color: #FFF;
+  color: #cb2d3e;
   font-size: 30px;
   cursor: pointer;
 }
@@ -446,14 +446,14 @@ border: 2px solid #fff;
   width: 50%;
   left: 22%;
   margin: 0 auto;
-  color: #FFF;
+  color: #cb2d3e;
   text-align: center;
   cursor:pointer;
   font-family: 'Josefin Slab', serif;
   font-size: 26px;
   position: fixed;
   top: 65%;
-  border: 2px solid #fff;
+  border: 2px solid #cb2d3e;
 }
 .foods {
   display: none;
