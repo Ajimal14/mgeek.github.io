@@ -61,7 +61,7 @@
 //Impure Functions Altering The State
 const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML = arr.map(a => `<li data-id="${a.establishment.id}">${a.establishment.name}</li>`).join('')}
   const showPlaces = (arr) => {
-    if(arr != undefined) document.querySelector('#rest').innerHTML = arr.map(a => `<li data-address='${encodeURIComponent(a.restaurant.location.address)}'>${a.restaurant.name}</li>`).join('')
+    if(arr != undefined) document.querySelector('#rest').innerHTML = arr.map(a => `<li data-address='${encodeURI(a.restaurant.location.address)}'>${a.restaurant.name}</li>`).join('')
     else document.querySelector('#rest').innerHTML =  `<h1>Sorry We're Connecting Your City to the Grid</h1>`;
   }
   const saveMobileLocation = (inp)=>{
@@ -91,8 +91,8 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
     })()
   }
   document.querySelector('#rest').addEventListener('click',(e)=> {
-
-    let addr = e.target.dataset.address;
+  e.preventDefault();
+  let addr = e.target.dataset.address;
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     document.querySelector('.foods').style.display = 'none';
      popup.show(); //This Will Show The Popup
@@ -103,7 +103,9 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
    document.querySelector('.navig').innerHTML = '<i class="fa fa-car" aria-hidden="true"></i><br>'+`${time} away`;
  });
   document.querySelector('.navig').addEventListener('click',(e)=> {
-  window.location.href = "https://www.google.com/maps/dir//"+addr;                                                                      })
+  e.preventDefault();
+  window.location.href = "http://www.google.com/maps/dir//"+decodeURIComponent(encodeURI(addr));
+})
   }
   else {
     document.querySelector('#map iframe').src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC3ZfZ4hgIuv1_tUADFvzgZFNInJILI3Rk&q="+e.target.dataset.address;
@@ -114,7 +116,7 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
     filterByEstablishment(e.target.dataset.id)
       .then(res => res.json())
         .then(data => {
-          document.querySelector('.results').innerHTML = data.restaurants.map(a =>`<li data-address='${encodeURIComponent(a.restaurant.location.address)}'>${a.restaurant.name}</li>`).join('')
+          document.querySelector('.results').innerHTML = data.restaurants.map(a =>`<li data-address='${encodeURI(a.restaurant.location.address)}'>${a.restaurant.name}</li>`).join('')
           if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
             document.querySelector('.foods').style.display = 'block';
           }
@@ -130,6 +132,6 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
     let time = data.rows[0].elements[0].duration.text;
     document.querySelector('.navig').innerHTML = '<i class="fa fa-car" aria-hidden="true"></i><br>'+`${time} away`;
   });
-     document.querySelector('.navig').addEventListener('click',(e)=> {window.location.href = "https://www.google.com/maps/dir//"+addr;})
+    document.querySelector('.navig').addEventListener('click',(e)=> {window.location.href = "https://www.google.com/maps/dir//"+window.location.href = "http://www.google.com/maps/dir//"+decodeURIComponent(encodeURI(addr));})
   })
 })()
