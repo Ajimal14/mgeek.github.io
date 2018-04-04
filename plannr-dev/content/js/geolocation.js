@@ -73,7 +73,6 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
 
   document.querySelector('#rest').addEventListener('click',(e)=> {
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    let addr = e.target.dataset.address;
     document.querySelector('.foods').style.display = 'none';
      popup.show(); //This Will Show The Popup
   let data = fetchTime(currentLocation,addr)
@@ -84,11 +83,10 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
  });
   popup.close();
   document.querySelector('.navig').addEventListener('click',(e)=> {
-  window.location.href = "https://www.google.com/maps/dir//"+addr;
-                                                                      })
+  window.location.href = "https://www.google.com/maps/dir//"+addr;                                                                      })
   }
   else {
-    document.querySelector('#map iframe').src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC3ZfZ4hgIuv1_tUADFvzgZFNInJILI3Rk&q="+encodeURIComponent(e.target.dataset.address)
+    document.querySelector('#map iframe').src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC3ZfZ4hgIuv1_tUADFvzgZFNInJILI3Rk&q="+e.target.dataset.address;
   }
   })
   document.querySelector('.filters ul').addEventListener('click',(e)=> {

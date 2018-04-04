@@ -24,7 +24,6 @@
       },
       close : ()=>{ document.querySelector('.close').addEventListener('click',()=> {  document.querySelector('.popup').style.display = 'none'})}
   }
-
 //Impure Functions Altering The State
 const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML = arr.map(a => `<li data-id="${a.establishment.id}">${a.establishment.name}</li>`).join('')}
   const showPlaces = (arr) => {
@@ -33,9 +32,8 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
   }
 const saveMobileLocation = (inp)=>{
 currentLocation.lat =  inp.coords.latitude;
-  currentLocation.lng =  inp.coords.longitude;
+currentLocation.lng =  inp.coords.longitude;
     }
-
 //This Check The Device and Method Type To Get The Location
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
           if(navigator.geolocation) navigator.geolocation.getCurrentPosition(saveMobileLocation);
