@@ -1,7 +1,6 @@
 (()=>{
   let currentLocation = {};
   let currentArray = [];
-
 //Pure Function Returning Promises
   const fetchZomato = (inp) => fetch(`https://developers.zomato.com/api/v2.1/geocode?lat=${inp.lat}&lon=${inp.lng}`, { method: 'GET', headers: new Headers({'user-key': '4319603cbb48b9c4fb5a3211714b89d1'})})
   const findEstablishment = (id)=>fetch(`https://developers.zomato.com/api/v2.1/establishments?city_id=${id}`,{  method: 'GET',headers: new Headers({'user-key': '4319603cbb48b9c4fb5a3211714b89d1'})})
@@ -31,26 +30,25 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
     if(arr != undefined) document.querySelector('#rest').innerHTML = arr.map(a => `<li data-address='${encodeURIComponent(a.restaurant.location.address)}'>${a.restaurant.name}</li>`).join('')
     else document.querySelector('#rest').innerHTML =  `<h1>Sorry We're Connecting Your City to the Grid</h1>`;
   }
-const saveMobileLocation = (inp)=>{
-currentLocation.lat =  inp.coords.latitude;
-  currentLocation.lng =  inp.coords.longitude;
-    }
+  const saveMobileLocation = (inp)=>{
+    currentLocation.lat =  inp.coords.latitude;
+    currentLocation.lng =  inp.coords.longitude;
+    fetchZomato(currentLocation).then(res => res.json()).then(data => {
+      if(data.nearby_restaurants.length<1){document.querySelector('#rest').innerHTML =  `<h1>Sorry We're Not in your city yet</h1>`;}
+      else  findEstablishment(data.location.city_id).then(res => res.json()).then(data => showPlacesType(data.establishments));
+    }).catch(err => console.log(err))
+      }
 
 //This Check The Device and Method Type To Get The Location
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-          if(navigator.geolocation) navigator.geolocation.getCurrentPosition(saveMobileLocation);
-          fetchZomato(currentLocation).then(res => res.json()).then(data => {
-            if(data.nearby_restaurants.length<1){
-              document.querySelector('#rest').innerHTML =  `<h1>Sorry We're Not in your city yet</h1>`;
-              findEstablishment(data.location.city_id).then(res => res.json()).then(data => showPlacesType(data.establishments));
-            }
-          })
+          if(navigator.geolocation) navigator.geolocation.watchPosition(saveMobileLocation);
       }
   else {
     (async ()=>{
       let data = await(await fetch('https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyBVoJk_jr6_n2l3FoYdhjg1sVSQUrtOk6g',{ method : 'POST' , headers : new Headers({"considerIp": "true"}) })).json()
       currentLocation.lat = data.location.lat;
       currentLocation.lng = data.location.lng;
+      console.log('data is loaded');
       let zomatoData = await( await fetchZomato(currentLocation)).json()
        let est = await ( await findEstablishment(zomatoData.location.city_id)).json()
        showPlacesType(est.establishments);
