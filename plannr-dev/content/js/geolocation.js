@@ -10,8 +10,7 @@
   const popup = {
       show : () => {
       document.querySelector('.popup').style.display  = 'block';
-      document.querySelector('.popup').innerHTML  = `
-        <span class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+      document.querySelector('.popup-body').innerHTML  = `
         <div class='navig'>
                <i class="fa fa-car" aria-hidden="true"></i><br>Navigate
        </div>
@@ -20,10 +19,43 @@
                <i class="fa fa-users" aria-hidden="true"></i><br>Plan
         </div>
          `;
+      document.querySelector('.close').addEventListener('click',()=> {
+        setTimeout(()=>{document.querySelector('.popup').classList.remove('bounceIn')},100);
+        setTimeout(()=>{document.querySelector('.popup').classList.add('bounceOut')},200);
+       })
       },
-      close : ()=>{ document.querySelector('.close').addEventListener('click',()=> {  document.querySelector('.popup').style.display = 'none'})}
+      close : ()=>{
+        document.querySelector('.popup').style.transition = '0.5s';
+        document.querySelector('.popup').style.display = 'none';
+      }
   }
-
+  document.querySelector('#search').addEventListener('click',()=> {
+  popup.show();
+  setTimeout(()=>{document.querySelector('.popup').classList.remove('bounceOut')},100);
+  setTimeout(()=>{document.querySelector('.popup').classList.add('bounceIn')},100);
+  document.querySelector('.popup-body').innerHTML =
+`
+  <div class="full"><div class="bubble animated jackInTheBox"><i class="fa fa-map-marker" aria-hidden="true"></i></div></div>
+  <h1>Enter Your Location!</h1>
+  <div class="inputbox"><input type='text' id ='getCity' class="animated jackInTheBox"><i class='fa fa-search' id='searchPlaces'></i></div>
+  <p class="sub">Enter Your Locality Address like block/street/sector number </p>
+  `;
+  document.querySelector('#searchPlaces').addEventListener('click',()=> {
+   (async()=>{
+     popup.close();
+     let data = await(await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(document.querySelector('#getCity').value)}&key=AIzaSyDMiNEO6NFZZywezqZ0A8YLQ5cd-eMhb6M`)).json()
+     currentLocation.lat = data.results[0].geometry.location.lat;
+     currentLocation.lng = data.results[0].geometry.location.lng;
+     let zomatoData = await( await fetchZomato(currentLocation)).json()
+       currentArray = zomatoData.nearby_restaurants;
+       showPlaces(currentArray);
+       if(currentArray !== undefined) {
+       let est = await ( await findEstablishment(zomatoData.location.city_id)).json()
+       showPlacesType(est.establishments);
+       }
+ })()
+ })
+  })
 //Impure Functions Altering The State
 const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML = arr.map(a => `<li data-id="${a.establishment.id}">${a.establishment.name}</li>`).join('')}
   const showPlaces = (arr) => {
@@ -39,7 +71,7 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
     }).catch(err => console.log(err))
       }
 
-//This Check The Device and Method Type To Get The Location
+//    This Check The Device and Method Type To Get The Location
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
           if(navigator.geolocation) navigator.geolocation.watchPosition(saveMobileLocation);
       }
@@ -56,21 +88,6 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
       showPlaces(currentArray);
     })()
   }
-  document.querySelector('#searchPlaces').addEventListener('click',()=> {
-    (async()=>{
-      let data = await(await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(document.querySelector('#getCity').value)}&key=AIzaSyDMiNEO6NFZZywezqZ0A8YLQ5cd-eMhb6M`)).json()
-      currentLocation.lat = data.results[0].geometry.location.lat;
-      currentLocation.lng = data.results[0].geometry.location.lng;
-      let zomatoData = await( await fetchZomato(currentLocation)).json()
-        currentArray = zomatoData.nearby_restaurants;
-        showPlaces(currentArray);
-        if(currentArray !== undefined) {
-        let est = await ( await findEstablishment(zomatoData.location.city_id)).json()
-        showPlacesType(est.establishments);
-        }
-  })()
-  })
-
   document.querySelector('#rest').addEventListener('click',(e)=> {
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     document.querySelector('.foods').style.display = 'none';
@@ -81,7 +98,6 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
    let time = data.rows[0].elements[0].duration.text;
    document.querySelector('.navig').innerHTML = '<i class="fa fa-car" aria-hidden="true"></i><br>'+`${time} away`;
  });
-  popup.close();
   document.querySelector('.navig').addEventListener('click',(e)=> {
   window.location.href = "https://www.google.com/maps/dir//"+addr;                                                                      })
   }
@@ -89,7 +105,7 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
     document.querySelector('#map iframe').src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC3ZfZ4hgIuv1_tUADFvzgZFNInJILI3Rk&q="+e.target.dataset.address;
   }
   })
-  document.querySelector('.filters ul').addEventListener('click',(e)=> {
+document.querySelector('.filters ul').addEventListener('click',(e)=> {
     //This is Returning the only type of place you want like fine dining or sweet shop
     filterByEstablishment(e.target.dataset.id)
       .then(res => res.json())
@@ -110,7 +126,6 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
     let time = data.rows[0].elements[0].duration.text;
     document.querySelector('.navig').innerHTML = '<i class="fa fa-car" aria-hidden="true"></i><br>'+`${time} away`;
   });
-  popup.close();
      document.querySelector('.navig').addEventListener('click',(e)=> {window.location.href = "https://www.google.com/maps/dir//"+addr;})
   })
 })()

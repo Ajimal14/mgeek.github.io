@@ -11,15 +11,14 @@
     <link rel="stylesheet" href="content/css/font-awesome.min.css">
   </head>
   <body>
-    <nav class="navbar">
-      <span class="logo">Plannr</span>
-      </nav>
-    <div class="container">
-      <div class="search">
-      <h1>Find Your Perfect Place!</h1>
-      <p class="center"><input type="text" id ="getCity"><i class="fa fa-search" id="searchPlaces"></i></p>
-    </div>
-    </div>
+<nav class="navigation">
+<span class="logo">Plannr</span>
+<ul>
+  <li id="search">Search Places</li>
+  <li>Login/Sign Up</li>
+</ul>
+</nav>
+
 <div>
 <h1 class="headings">Hot Happenings Near You!</h1>
   <ul id="rest"></ul>
@@ -39,7 +38,12 @@
 
 <div class="results"></div>
 <div class="foods"></div>
-<div class="popup"></div>
+<div class="popup animated bounceIn">
+  <span class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+  <div class="popup-body">
+
+  </div>
+</div>
     <script src="content/js/geolocation.js" charset="utf-8"></script>
   </body>
 </html>
