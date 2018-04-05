@@ -106,7 +106,7 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
  });
   document.querySelector('.navig').addEventListener('click',(e)=> {
   e.preventDefault();
-  window.location.href = "http://www.google.com/maps/dir//"+loc+"|"+addr;;
+  window.location.href = `http://www.google.com/maps/dir//${addr}/@${loc}`;
 })
   }
   else {
@@ -139,7 +139,7 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
   });
     document.querySelector('.navig').addEventListener('click',(e)=> {
     e.preventDefault();
-    window.location.href = "http://www.google.com/maps/dir//"+loc+"|"+addr;
+    window.location.href = `http://www.google.com/maps/dir//${addr}/@${loc}`;
     })
   })
 })()
