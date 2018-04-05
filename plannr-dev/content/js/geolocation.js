@@ -132,6 +132,7 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
     let time = data.rows[0].elements[0].duration.text;
     document.querySelector('.navig').innerHTML = '<i class="fa fa-car" aria-hidden="true"></i><br>'+`${time} away`;
   });
-    document.querySelector('.navig').addEventListener('click',(e)=> {window.location.href = "https://www.google.com/maps/dir//"+window.location.href = "http://www.google.com/maps/dir//"+decodeURIComponent(encodeURI(addr));})
+    document.querySelector('.navig').addEventListener('click',()=> {
+    window.location.href = "http://www.google.com/maps/dir//"+decodeURIComponent(encodeURI(addr))})
   })
 })()
