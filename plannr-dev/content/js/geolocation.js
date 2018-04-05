@@ -61,7 +61,8 @@
 //Impure Functions Altering The State
 const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML = arr.map(a => `<li data-id="${a.establishment.id}">${a.establishment.name}</li>`).join('')}
   const showPlaces = (arr) => {
-    if(arr != undefined) document.querySelector('#rest').innerHTML = arr.map(a => `<li data-address='${encodeURI(a.restaurant.location.address)}'>${a.restaurant.name}</li>`).join('')
+    console.log(arr);
+    if(arr != undefined) document.querySelector('#rest').innerHTML = arr.map(a => `<li data-address='${a.restaurant.location.address}' data-location='${a.restaurant.location.latitude},${a.restaurant.location.longitude}'>${a.restaurant.name}</li>`).join('')
     else document.querySelector('#rest').innerHTML =  `<h1>Sorry We're Connecting Your City to the Grid</h1>`;
   }
   const saveMobileLocation = (inp)=>{
@@ -93,6 +94,7 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
   document.querySelector('#rest').addEventListener('click',(e)=> {
   e.preventDefault();
   let addr = e.target.dataset.address;
+  let loc = e.target.dataset.location;
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     document.querySelector('.foods').style.display = 'none';
      popup.show(); //This Will Show The Popup
@@ -104,12 +106,11 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
  });
   document.querySelector('.navig').addEventListener('click',(e)=> {
   e.preventDefault();
-  // console.log(decodeURIComponent(addr));
-  window.location.href = "http://www.google.com/maps/dir//"+decodeURIComponent(addr);
+  window.location.href = "http://www.google.com/maps/dir//"+loc;
 })
   }
   else {
-    document.querySelector('#map iframe').src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC3ZfZ4hgIuv1_tUADFvzgZFNInJILI3Rk&q="+e.target.dataset.address;
+    document.querySelector('#map iframe').src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC3ZfZ4hgIuv1_tUADFvzgZFNInJILI3Rk&q="+addr;
   }
   })
 document.querySelector('.filters ul').addEventListener('click',(e)=> {
@@ -117,7 +118,7 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
     filterByEstablishment(e.target.dataset.id)
       .then(res => res.json())
         .then(data => {
-          document.querySelector('.results').innerHTML = data.restaurants.map(a =>`<li data-address='${encodeURI(a.restaurant.location.address)}'>${a.restaurant.name}</li>`).join('')
+          document.querySelector('.results').innerHTML = data.restaurants.map(a =>`<li data-address='${a.restaurant.location.address}' data-location='${a.restaurant.location.latitude},${a.restaurant.location.longitude}'>${a.restaurant.name}</li>`).join('')
           if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
             document.querySelector('.foods').style.display = 'block';
           }
@@ -127,6 +128,8 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
   document.querySelector('.results').addEventListener('click',(e)=>{
   e.preventDefault();
   let addr = e.target.dataset.address;
+  let loc = e.target.dataset.location;
+  console.log(loc);
   popup.show();
   let data = fetchTime(currentLocation,addr)
   .then(res => res.json())
@@ -136,7 +139,7 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
   });
     document.querySelector('.navig').addEventListener('click',(e)=> {
     e.preventDefault();
-    window.location.href = "http://www.google.com/maps/dir//"+decodeURIComponent(addr);
+    window.location.href = "http://www.google.com/maps/dir//"+loc;
     })
   })
 })()
