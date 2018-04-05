@@ -104,7 +104,8 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
  });
   document.querySelector('.navig').addEventListener('click',(e)=> {
   e.preventDefault();
-  window.location.href = "http://www.google.com/maps/dir//"+decodeURIComponent(encodeURI(addr));
+  // console.log(decodeURIComponent(addr));
+  window.location.href = "http://www.google.com/maps/dir//"+decodeURIComponent(addr);
 })
   }
   else {
@@ -124,15 +125,18 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
   });
   //All The Category Based restaurants Are Here
   document.querySelector('.results').addEventListener('click',(e)=>{
-    let addr = e.target.dataset.address;
-    popup.show();
+  e.preventDefault();
+  let addr = e.target.dataset.address;
+  popup.show();
   let data = fetchTime(currentLocation,addr)
   .then(res => res.json())
   .then(data => {
     let time = data.rows[0].elements[0].duration.text;
     document.querySelector('.navig').innerHTML = '<i class="fa fa-car" aria-hidden="true"></i><br>'+`${time} away`;
   });
-    document.querySelector('.navig').addEventListener('click',()=> {
-    window.location.href = "http://www.google.com/maps/dir//"+decodeURIComponent(encodeURI(addr))})
+    document.querySelector('.navig').addEventListener('click',(e)=> {
+    e.preventDefault();
+    window.location.href = "http://www.google.com/maps/dir//"+decodeURIComponent(addr);
+    })
   })
 })()
