@@ -33,21 +33,14 @@
   }
   // Search Places by Location
   document.querySelector('#search').addEventListener('click',()=> {
-  popup.show();
-  setTimeout(()=>{document.querySelector('.popup').classList.remove('bounceOut')},100);
-  setTimeout(()=>{document.querySelector('.popup').classList.add('bounceIn')},100);
-  document.querySelector('.popup-body').innerHTML =
+  document.querySelector('.navigation').innerHTML =
 `
-  <div class="full"><div class="bubble animated jackInTheBox">
-  <i class="fa fa-map-marker" aria-hidden="true"></i></div></div>
-  <h1>Enter Your Location!</h1>
-  <div class="inputbox"><input type='text' id ='getCity' class="animated jackInTheBox"><i class='fa fa-search' id='searchPlaces'></i></div>
-  <p class="sub">Enter Your Locality Address like block/street/sector number </p>
-
+  <input type='text' id ='getCity' class="animated slideInDown"></input>
   `;
-
-  document.querySelector('#searchPlaces').addEventListener('click',(e)=> {
-    e.preventDefault();
+  document.querySelector('#getCity').focus();
+  document.querySelector('#getCity').addEventListener("keyup", function(e) {
+  e.preventDefault();
+  if (event.keyCode === 13) {
    (async()=>{
      popup.close();
      let data = await(await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(document.querySelector('#getCity').value)}&key=AIzaSyDMiNEO6NFZZywezqZ0A8YLQ5cd-eMhb6M`)).json()
@@ -59,22 +52,20 @@
     showPlaces(currentArray);
     showPlacesType(est.establishments);
  })()
- })
+ document.querySelector('.navigation').innerHTML = `<span class="logo animated slideInDown">Plannr</span>`;
+  }
   })
-
+});
   document.querySelector('#login').addEventListener('click',()=> {
   popup.show();
   setTimeout(()=>{document.querySelector('.popup').classList.remove('bounceOut')},100);
   setTimeout(()=>{document.querySelector('.popup').classList.add('bounceIn')},100);
   document.querySelector('.popup-body').innerHTML = `
   <h1>Enter Your Location!</h1>
-  <div class="inputbox">Username:<input type="text" id ="getID" class="animated jackInTheBox"></div>
-  <div class="inputbox">Password<input type="password" id ="getID" class="animated jackInTheBox"></div>
+  <div class="inputbox">Username:<input type="text" class ="getID" class="animated jackInTheBox"></div>
+  <div class="inputbox">Password<input type="password" class ="getPassword" class="animated jackInTheBox"></div>
   `
 })
-
-
-
 //Impure Functions Altering The State
 const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML = arr.map(a => `<li data-id="${a.establishment.id}">${a.establishment.name}</li>`).join('')}
   const showPlaces = (arr) => {
@@ -106,13 +97,6 @@ const showPlacesType = (arr)=> {document.querySelector('.filters ul').innerHTML 
       showPlaces(currentArray);
     })()
 }
-
-document.querySelector('.fa-bars').addEventListener('click',(e)=> {
-    e.preventDefault();
-    document.querySelector('.navigation').classList.toggle('hamactive');
-    // document.querySelector('.hamburgur').innerHTML =  '<i class="fa fa-times-circle cross" aria-hidden="true"></i>';
-});
-
   document.querySelector('#rest').addEventListener('click',(e)=> {
   e.preventDefault();
   let addr = e.target.dataset.address;
@@ -166,5 +150,11 @@ document.querySelector('.filters ul').addEventListener('click',(e)=> {
     e.preventDefault();
     window.location.href = `http://www.google.com/maps/dir//${addr}/@${loc}`;
     })
+    document.querySelector('.plan').addEventListener('click',()=> {
+      document.querySelector('.popup-body').innerHTML = `
+      <div class="inputbox">Username:<input type="text" class ="getID" class="animated jackInTheBox"></div>
+      <div class="inputbox">Password<input type="password" class="getPassword" class="animated jackInTheBox"></div>
+      `
+      })
   })
 })()
